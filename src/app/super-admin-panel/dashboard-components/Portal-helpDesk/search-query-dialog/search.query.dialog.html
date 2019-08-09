@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="reset-pass-palceholder">
+    <div mat-dialog-content class="dialog-layout">
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="query" placeholder="Query">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="category" placeholder="Topic">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select formControlName="status" placeholder="Status">
+                <mat-option *ngFor="let i of status" [value]="i.value">
+                    {{i.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button class="btn-submit" mat-raised-button (click)="search()">
+        Search
+    </button>
+</form>

@@ -1,0 +1,155 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    // background-image: url('assets/images/Login\ GIF\ GC.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .mainCard {
+        max-width: 400px;
+        width: 100%;
+        margin-top: 30px;
+        .button {
+            background-color: #000;
+            border-radius: 30px;
+            padding: 4px 15px;
+            color: #FFF;
+            width: 100%;
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            box-shadow: 0 14px 26px -12px rgba(0, 0, 0, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2) !important;
+        }
+        .button:hover {
+            background-color: #c00 !important;
+            box-shadow: none !important;
+            color: #fff
+        }
+        .inputFields {
+            display: flex;
+            flex-direction: column;
+            margin: 30px 0 0;
+            position: relative;
+            top: -22px;
+        }
+        .error {
+            color: #f44336;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+            margin: 4px 0 0 0;
+        }
+        span {
+            font-size: 13px;
+        }
+        mat-icon {
+            color: #4d4747;
+            cursor: pointer;
+        }
+        label {
+            color: #007dff !important;
+            font-weight: 600;
+            transition: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        .sign-up:hover {
+            color: #c00 !important
+        }
+        label:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .stay {
+            font-weight: bold;
+            color: #000;
+            font-size: 13px;
+        }
+        a {
+            color: #0c6fc0 !important;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .title {
+            background-color: #0f0f0f;
+            margin-top: -50px !important;
+            border-radius: 6px;
+            padding: 15px 0px 15px 0px;
+        }
+        .error-block {
+            font-size: 12px
+        }
+        h3 {
+            font-size: 26px !important;
+            color: #fff;
+            font-weight: 700 !important;
+            text-align: center;
+        }
+        .term-of-use {
+            font-size: 13px;
+            margin-left: 78px;
+            font-weight: 400;
+        }
+        .privacy-policy {
+            font-size: 13px;
+            margin-right: 87px;
+            font-weight: 400;
+        }
+        mat-form-field {
+            font-size: 20px;
+            font-weight: 600 !important;
+            color: #1f1c1c !important;
+            font-family: Roboto, "Helvetica Neue", sans-serif;
+        }
+        #sign {
+            font-weight: 600;
+        }
+        #sign-up {
+            font-weight: 600 !important;
+            color: #000;
+            font-size: 16px;
+            margin-right: 4px;
+        }
+        .middle {
+            display: flex;
+            flex-flow: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: -20px
+        }
+        .inside-middle {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start
+        }
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+        .inside-bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 15px
+        }
+        .last {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            margin-top: 5px
+        }
+    }
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #000 !important;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #bfbfbf;
+}

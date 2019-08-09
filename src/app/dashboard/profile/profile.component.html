@@ -1,0 +1,73 @@
+<div class="layout row">
+    <div  class="header-form col-sm-3">
+        <h3 ><i class="fa fa-user" aria-hidden="true"></i> Edit Profile</h3>
+    </div>
+    <div class="col-sm-12">
+        <form autocomplete="off" [formGroup]="register" class="profile ">
+            <!-- <mat-card-header>
+                <div mat-card-avatar class="example-header-image"> </div>
+                <mat-card-title>Edit Profile</mat-card-title>
+            </mat-card-header> -->
+           
+            <div class="flex-form">
+                <mat-form-field id="capitalize">
+                    <input class="text_captilize" matInput placeholder="First Name" type="text" formControlName="firstname" required>
+                    <mat-error *ngIf="register.controls.firstname.value == ''">
+                        <strong>Please provide first name</strong>
+                    </mat-error>
+                    <mat-error *ngIf="register.controls.firstname.hasError('pattern')">
+                        Only alphabets are allowed
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field id="capitalize">
+                    <input class="text_captilize" matInput placeholder="Last Name" type="text" formControlName="lastname" required>
+                    <mat-error *ngIf="register.controls.lastname.value == ''">
+                        <strong>Please provide last name</strong>
+                    </mat-error>
+                    <mat-error *ngIf="register.controls.lastname.hasError('pattern')">
+                        Only alphabets are allowed
+                    </mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div class="flex-form">
+                <mat-form-field>
+                    <input matInput class="text_captilize" placeholder="Organization" type="text" formControlName="companyname" required>
+                    <mat-error *ngIf="register.controls.companyname.value == ''">
+                        <strong>Please provide organization</strong>
+                    </mat-error>
+                    <mat-error *ngIf="register.controls.companyname.hasError('pattern')">
+                        Invalid organization name
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Phone No." type="text" [textMask]="{mask: mask}" formControlName="phone" required>
+                    <mat-error *ngIf="register.controls.phone.value == ''">
+                        <strong>Please provide phone no</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex-form">
+                <mat-form-field>
+                    <input matInput placeholder="Email" type="text" formControlName="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                </mat-form-field>
+                <app-field-error-display [displayError]="isFieldValid(register, 'email')" errorMsg="Email is required and format should be john@doe.com.">
+                </app-field-error-display>
+                <mat-form-field>
+                    <input matInput placeholder="Plan" type="text" formControlName="package">
+                </mat-form-field>
+            </div>
+            <div class="flex-form">
+                <mat-form-field>
+                    <input matInput placeholder="Start Date" formControlName="startDate">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="End Date" formControlName="endDate">
+                </mat-form-field>
+            </div>
+            <div class="form-group updateButton" >
+                <button type="submit"  [disabled]="!register.valid || valid" class="btn btn-rose" (click)="onRegister()">Update</button>
+            </div>
+        </form>
+    </div>
+  </div>

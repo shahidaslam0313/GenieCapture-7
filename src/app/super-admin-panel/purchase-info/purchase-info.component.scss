@@ -1,0 +1,117 @@
+.layout {
+    width: 100%;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.mat-card {
+    padding: 3px;
+}
+
+.no_save_card {
+    font-size: 18px;
+    font-weight: 500 !important;
+    padding: 100px;
+    text-align: center;
+}
+
+.mat-card-header {
+    background-color: #000;
+    border-radius: 2px;
+    justify-content: center;
+    .mat-card-title {
+        color: #fff;
+        font-size: 26px;
+        padding: 10px 15px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+}
+
+.no_save_card {
+    font-size: 18px;
+    font-weight: 500 !important;
+    padding: 100px;
+    text-align: center;
+}
+
+.btn-subscription {
+    border-radius: 30px;
+    background-color: #cd0000;
+    color: #fff;
+    margin: 5px 4px 5px 4px;
+    font-weight: 600 !important;
+}
+
+.table {
+    border: 1px solid #c3bebe;
+}
+
+.positive {
+    color: #68a807;
+}
+
+.negative {
+    color: #f80000;
+}
+
+.table-header {
+    background-color: #fff;
+    font-size: 12px;
+}
+
+.mat-card-content {
+    border: 1px solid #c3bebe;
+    .table {
+        border: 1px solid #c3bebe;
+    }
+    .table-header {
+        background-color: #f4f4f499;
+        font-size: 16px;
+    }
+    .table>thead>tr>th {
+        padding: 9px !important;
+    }
+}
+
+.mat-mini-fab.mat-accent {
+    background-color: rgb(10, 10, 10);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+@mixin mat-icon-size($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+}
+
+.mat-icon {
+    @include mat-icon-size(26px);
+}
+
+.paginator {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: -15px;
+    max-height: 35px;
+    h5 {
+        color: rgb(41, 39, 39);
+        margin-top: 7px;
+        font-weight: 550 !important;
+        margin-right: 9px;
+    }
+}
+
+.admin-home-palceholder {
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: -18px;
+    span {
+        font-weight: 600;
+        color: #000;
+        font-size: 16px;
+    }
+}

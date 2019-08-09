@@ -1,0 +1,35 @@
+<div class="header">
+    <div class="inside-header">
+        <a routerLink="/" class="logo">
+            <img src="./assets/images/250x66.png" alt="geniecapture" />
+        </a>
+        <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+    </div>
+    <div class="collapse navbar-collapse " id="menu-example">
+        <ul class="navbar-nav navbar-right abc">
+           
+            <li id="top">
+                <a routerLink="/admin/dashboard" routerLinkActive="active-route">
+                    <i class="fa fa-users"></i><span >Customers</span></a>
+            </li>
+            <li>
+                <a routerLink="/admin/dashboard/payment-details" routerLinkActive="active-route">
+                    <i class="fa fa-credit-card"></i><span>Payment Details</span></a>
+            </li>
+
+            <li>
+                <a routerLink="/admin/dashboard/contact" routerLinkActive="active-route">
+                    <i class="fa fa-envelope"></i><span >Contact Us</span></a>
+            </li>
+            <li>
+                <a (click)="logout()" style="cursor: pointer;">
+                    <i class="fa fa-th-large fa-lock"></i><span >Sign out</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

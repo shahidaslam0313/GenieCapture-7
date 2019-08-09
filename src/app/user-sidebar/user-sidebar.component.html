@@ -1,0 +1,148 @@
+<div class="sidebar-user sh-sidebar-user ">
+        <nav>
+                <h3  class="text-center sh-mt-70" *ngIf="check_login()">Search Filters</h3>
+                <h3  class="sh-mt-100 text-center" *ngIf="!check_login()">Search Filters</h3>
+                <!-- </div> -->
+                <div class="card-content sh-card-content ">
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate class="sh-sidebar-more-condense">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-primary btn-rose btn-lg sh-btn-fixed" title="Search">Refresh Results</button>
+                    </div>
+                <div class="col-sm-12 mgMinus5" >
+                    <h4>Status</h4>
+                <mat-form-field>
+                <mat-select [(ngModel)]="status" name="status" (change)="onSubmit(f)">
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{ food.viewValue }}
+                </mat-option>
+                </mat-select>
+                </mat-form-field>
+                </div>
+                <div class="col-sm-12">
+                    <h4>Posted Date From</h4>
+                <mat-form-field>
+                <input matInput (click)="picker.open()" name="enterdate" (focus)="picker.open()" [matDatepicker]="picker"
+                [(ngModel)]="enterdate" (ngModelChange)="onSubmit(f)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+    
+                </mat-form-field>
+                </div>
+                <div class="col-sm-12 margin-top: -22px" >
+                    <h4>Posted Date to</h4>
+                <mat-form-field class="example-full-width mat-size">
+                <input matInput (click)="picker2.open()" name="duedate" (focus)="picker2.open()" [matDatepicker]="picker2"
+                [(ngModel)]="duedate" (ngModelChange)="onSubmit(f)">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+                </div>
+                <div class="col-sm-12 margin-top: -22px">
+                    <h4>Search By State</h4>
+                <mat-form-field>
+                <mat-select [(ngModel)]="states" name="states" (change)="onSubmit(f)">
+                    <input  class="inp" type="text" [(ngModel)]="statsearch" [ngModelOptions]="{standalone: true}"  class="search-allstates" placeholder="Search By State" >
+                    <i class="fa fa-search s-icon-all-states" area-hidden="true" ></i>
+                    <mat-option value='all'>Select All</mat-option>
+                    <mat-option  class="elips-mat-opt" *ngFor="let item of state |filter:statsearch" [value]="item.state" title="{{item.state}}">{{item.state}}</mat-option>
+                
+                </mat-select>
+                </mat-form-field>
+                </div>
+                    <div class="col-sm-12 mgminus22">
+                        <h4>Search By Agency</h4>
+                        <mat-form-field>
+                            <mat-select [(ngModel)]="agencies" name="agency" (change)="onSubmit(f)">
+                                <input type="text" [(ngModel)]="agensearch" [ngModelOptions]="{standalone: true}" placeholder="Search By Agency"  class="search-allstates inp" >
+                                <i class="fa fa-search s-icon-all-states" area-hidden="true" ></i>
+                                <mat-option value='all'>Select All</mat-option>
+                                <mat-option class="elips-mat-opt" *ngFor="let item of agency| filter:agensearch" [value]="item.agency" title="{{item.agency}}">{{item.agency}}</mat-option>
+    
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+    
+                <div class="col-sm-12 mgminus22">
+                    <h4>Search By Category</h4>
+                <mat-form-field>
+                <mat-select [(ngModel)]=cates name="cates" (change)="onSubmit(f)">
+                    <input class="inp" type="text" [(ngModel)]="catsearch" [ngModelOptions]="{standalone: true}" placeholder="Search By Category"  class="search-allstates" >
+                    <i class="fa fa-search s-icon-all-states" area-hidden="true" ></i>
+                    <mat-option value='all'>Select All</mat-option>
+                    <mat-option class="elips-mat-opt" *ngFor="let catitem of cat" [value]="catitem.category| filter:catsearch" title="{{catitem.category}}">{{catitem.category}}</mat-option>
+                </mat-select>
+                </mat-form-field>
+                </div>
+                
+    
+                </div>
+                </form>
+                </div>
+            <ul class="list-category" >
+    
+                <li>
+                    <h5>
+                        <span>States</span>
+                    </h5>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('California')">California</a>
+                </li>
+                <li>
+                    <a class="abc"(click)="rfpState('Florida')">Florida</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('Georgia')">Georgia</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('Illinois')">Illinois</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('Massachusetts')">Massachusetts</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('New Jersey')">New Jersey</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('New York')"> New York</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('North Carolina')">North Carolina</a>
+                </li>
+                <li>
+                    <a class="abc" (click)="rfpState('Texas')">Texas</a>
+                </li>
+                <li>
+                    <button routerLink="/all-state" class="btn btn-primary btn-rose sh-btn-fixed" title="View All States">View All States</button>
+                </li>
+                <li>
+                    <h5>
+                        <span>Categories</span>
+                    </h5>
+                </li>
+                <li>
+                    <a class="abc" (click)="catRfp('Global , Software, System and Application')"> Global , Software, System and Application </a>
+                </li>
+                <li>
+                    <a class="abc" (click)="catRfp('Engine Accessories')"> Engine Accessories </a>
+                </li>
+                <li>
+                    <a class="abc" (click)="catRfp('HR Services')"> HR Services </a>
+                </li>
+                <li>
+                    <a class="abc" (click)="catRfp('IT Services (Computer Maintenance and Technical Services)')"> IT Services (Computer Maintenance and Technical Services) </a>
+                </li>
+                <li>
+                    <a class="abc" (click)="catRfp('Medical and Surgical Supplies')"> Medical and Surgical Supplies </a>
+                </li>
+                <li>
+                    <a class="abc" (click)="catRfp('Rental Services')"> Rental Services </a>
+                </li>
+                <li>
+                    <button routerLink="/all-category" class="btn btn-primary btn-rose sh-btn-fixed" title="View All Categories">View All Categories</button>
+                </li>
+            </ul>
+        </nav>
+    </div>

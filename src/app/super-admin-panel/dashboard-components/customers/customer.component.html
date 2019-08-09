@@ -1,0 +1,61 @@
+<div class="admin-home-palceholder">
+    <span>Total Records: {{length}}</span>
+    <div>
+        <button mat-icon-button (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+        <button mat-icon-button (click)="searchDialog()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+</div>
+<mat-card class="card mat-elevation-z7 ">
+    <mat-card-header>
+        <mat-card-title>Registered Customers</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table history-table">
+            <thead class="table-header">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Joining Date</th>
+                    <th>Active</th>
+                    <th>Payments</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let i of customers">
+                <tr>
+                    <td>{{i?.first_name }}</td>
+                    <td>{{i?.last_name }}</td>
+                    <td>{{i?.email}}</td>
+                    <td>{{i?.date_joined | date: 'dd/MM/yyyy'}}</td>
+                    <td [ngClass]="{
+                         'negative':i.is_active==false,
+                         'positive':i.is_active==true}">
+                        <mat-icon *ngIf="i.is_active">done_all</mat-icon>
+                        <mat-icon *ngIf="!i.is_active">close</mat-icon>
+                    </td>
+                    <td>
+                        <button mat-icon-button (click)="purchase(i)">
+                            <i class="material-icons">credit_card</i>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                                    <i class="material-icons">toc</i>
+                                </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="verifyLink(i)">
+                                      <mat-icon>link</mat-icon>
+                                      <span >Resend Link</span>
+                                    </button>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

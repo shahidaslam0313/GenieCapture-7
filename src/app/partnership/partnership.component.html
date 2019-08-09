@@ -1,0 +1,46 @@
+<section class="partnership">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-7 col-sm-6 fixer">
+                <h2>Become a GenieCapture Partner</h2>
+                <p class="elevate">Elevate your collaborative e-Learning experience to a whole new level.</p>
+                <form [formGroup]="form">
+                    <div class="mainFlex">
+                        <mat-form-field>
+                            <input matInput formControlName="name">
+                            <mat-placeholder>Name *</mat-placeholder>
+                            <mat-error *ngIf="form.controls.name.value == ''">
+                                Please provide name
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="email">
+                            <mat-placeholder>Email *</mat-placeholder>
+                            <mat-error *ngIf="form.controls.email.value == ''">
+                                Please provide email
+                            </mat-error>
+                            <mat-error *ngIf="form.controls.email.hasError('pattern')">
+                                Please enter a valid email address
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="companyname">
+                            <mat-placeholder>Company Name *</mat-placeholder>
+                            <mat-error *ngIf="form.controls.companyname.value == ''">
+                                Please provide company name
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <textarea matInput formControlName="help"></textarea>
+                            <mat-placeholder>How can we Partner Up? *</mat-placeholder>
+                            <mat-error *ngIf="form.controls.help.value == ''">
+                                Message is required
+                            </mat-error>
+                        </mat-form-field>
+                        <button type=button class="btn btn-rose" (click)="Partnership()" [disabled]="!form.valid">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

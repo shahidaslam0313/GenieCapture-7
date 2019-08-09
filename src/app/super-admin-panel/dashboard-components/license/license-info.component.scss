@@ -1,0 +1,54 @@
+.layout {
+    margin: 20px 0;
+    width: 100%;
+    border-radius: 4px;
+}
+.mat-card{padding: 3px;
+.mat-card-header {
+    background-color: #000;
+    border-radius: 4px;
+    justify-content: center;
+
+    .mat-card-title {
+        color: #fff;
+        font-size: 26px;
+        padding: 10px 5px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+}}
+
+.no_save_card {
+
+    font-size: 18px;
+    font-weight: 500 !important;
+    box-sizing: border-box;
+    padding-bottom: 80px;
+    padding-top: 70px;
+    text-align: center;
+}
+
+.btn-subscription {
+    border-radius: 30px;
+    background-color: #cd0000;
+    color: #fff;
+    margin: 5px 4px 5px 4px;
+    font-weight: 600 !important;
+}
+
+.row {
+    margin: 10px;
+
+    .text {
+        font-weight: bold;
+    }
+}
+
+.mat-card-content {
+    border: 1px solid #c3bebe;
+
+}
+
+a {
+    color: #0c6fc0 !important
+}

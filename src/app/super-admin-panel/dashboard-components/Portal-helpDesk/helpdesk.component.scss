@@ -1,0 +1,84 @@
+.mat-card {
+    padding: 3px;
+    width: 100%;
+    border-radius: 4px;
+    margin: 20px 0;
+    .mat-card-header {
+        background-color: #000;
+        border-radius: 2px;
+        justify-content: center;
+        .mat-card-title {
+            color: #fff;
+            font-size: 24px;
+            padding: 10px 15px;
+            font-weight: bold;
+            margin-bottom: 0px;
+        }
+    }
+    .mat-card-content {
+        border: 1px solid #c3bebe;
+        max-height: 400px;
+        height: 100%;
+        overflow: auto;
+        .table {
+            border: 1px solid #c3bebe;
+        }
+        .table-header {
+            background-color: #f4f4f499;
+            font-size: 16px;
+        }
+        .table>thead>tr>th {
+            padding: 9px !important;
+        }
+    }
+    .positive {
+        color: #68a807;
+    }
+    .negative {
+        color: #f80000;
+    }
+}
+
+.mat-card-content::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgb(219, 219, 219);
+}
+
+.mat-card-content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.116);
+    background-color: #4f4f4f;
+}
+
+.admin-home-palceholder {
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: -18px;
+    justify-content: space-between;
+    span {
+        font-weight: 600;
+        color: #000;
+        margin: 9px 2px !important;
+        font-size: 14px;
+    }
+    .mat-icon {
+        color: #000;
+    }
+}
+
+.mat-mini-fab.mat-accent {
+    background-color: rgb(10, 10, 10);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+@mixin mat-icon-size($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+}
+
+.mat-icon {
+    @include mat-icon-size(26px);
+}

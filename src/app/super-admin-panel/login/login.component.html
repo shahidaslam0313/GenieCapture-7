@@ -1,0 +1,55 @@
+<div class="background">
+    <mat-card class="mainCard">
+        <mat-card class="title mat-elevation-z4">
+            <h3>Sign In to Your Account</h3>
+        </mat-card>
+        <form [formGroup]="form" (ngSubmit)="onLogin()" class="current-placeholder">
+            <div class="inputFields">
+                <mat-form-field>
+                    <input matInput formControlName="email" placeholder="Email">
+
+                    <mat-error *ngIf="form.controls.email.value == ''">
+                        <strong class="error-block">Please provide email</strong>
+                    </mat-error>
+                    <mat-error *ngIf="form.controls.email.hasError('pattern')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput id="password" formControlName="password" placeholder="Password" />
+                </mat-form-field>
+            </div>
+            <div class="middle">
+                <div class="inside-middle">
+                    <mat-slide-toggle>
+                        <span class="stay"> Stay Signed In</span>
+                    </mat-slide-toggle>
+                    <label>
+                        Forgot password?
+                    </label>
+                </div>
+                <div>
+                    <div>
+                        <!-- <app-recapcha></app-recapcha> -->
+                    </div>
+                    <!-- <div *ngIf="isequal==false" class="error">
+                        <span>Please enter above text</span>
+                    </div> -->
+                </div>
+
+            </div>
+            <button class="btn button">Sign In</button>
+        </form>
+        <div class="bottom">
+            <div class="inside-bottom">
+                <span id="sign-up">No Account Yet ? </span>
+                <a class="sign-up" routerLink="/sign-up" id="sign"> Sign Up </a>
+            </div>
+            <div class="last">
+                <a class="term-of-use sign-up" target="_blank" routerLink="/terms">Terms of Use</a>
+                <a class="privacy-policy sign-up" target="_blank" routerLink="/privacy-policy">Privacy Policy</a>
+            </div>
+        </div>
+
+    </mat-card>
+</div>

@@ -1,0 +1,47 @@
+.dialog-layout {
+    display: flex;
+    flex-direction: column;
+    mat-form-field {
+        font-size: 16px;
+        font-weight: 600 !important;
+        color: #1f1c1c !important;
+    }
+    .mat-dialog-content {
+        max-height: 55vh !important;
+    }
+}
+
+.btn-submit[disabled] {
+    background-color: #585858;
+    color: #fff !important;
+    cursor: not-allowed;
+}
+
+.btn-submit[disabled]:hover {
+    background-color: rgba(204, 0, 0, 0.466);
+    color: #fff !important;
+    cursor: not-allowed;
+}
+
+.btn-submit {
+    background-color: #000;
+    border-radius: 30px;
+    color: #FFF;
+    font-size: 20px;
+    width: 100%;
+    font-weight: bold !important;
+}
+
+.btn-submit:hover {
+    background-color: #c00;
+    color: #FFF
+}
+
+#issue {
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px;
+    text-transform: capitalize;
+    background-color: #221c1c;
+}

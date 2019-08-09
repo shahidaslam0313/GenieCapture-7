@@ -1,0 +1,39 @@
+<form [formGroup]="form" class="reset-pass-palceholder">
+    <div mat-dialog-content class="dialog-layout">
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="nickname" placeholder="Nickname">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput formControlName="cardholder" placeholder="Cardholder">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select formControlName="card_type" placeholder="Card Type">
+                <mat-option *ngFor="let i of cards" [value]="i.value">
+                    {{i.viewValue}}
+                </mat-option>
+            </mat-select>
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select formControlName="package" placeholder="Package">
+                <mat-option *ngFor="let i of package" [value]="i.value">
+                    {{i.viewValue}}
+                </mat-option>
+            </mat-select>
+
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select formControlName="status" placeholder="Status">
+                <mat-option *ngFor="let i of status" [value]="i.value">
+                    {{i.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <button class="btn-submit" mat-raised-button (click)="search()">
+        Search
+    </button>
+</form>

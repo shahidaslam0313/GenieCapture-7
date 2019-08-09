@@ -1,0 +1,38 @@
+<app-loader>
+</app-loader>
+<form [formGroup]="verifyform" class="payment-card">
+    <div class="move-down">
+        <mat-card class="layout">
+            <mat-card class="title">
+                <h3> Forgot Password</h3>
+
+            </mat-card>
+            <p>Enter your email address to receive a link allowing you to reset your password.</p>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Email" formControlName="email2" required />
+                <mat-error *ngIf="verifyform.controls.email2.hasError('required')">
+                    <strong class="error-block ">Please provide email</strong>
+                </mat-error>
+                <mat-error *ngIf="verifyform.controls.email2.hasError('pattern')">
+                    <strong class="error-block ">Please enter a valid email address</strong>
+                </mat-error>
+            </mat-form-field>
+            <div class="align-row">
+                <div>
+                    <app-recapcha></app-recapcha>
+                    <span class="error-block" *ngIf="isequal==false">*Please enter above text</span>
+                </div>
+                <div class="button-align">
+                    <button mat-button type="button" class="btn-submit" (click)="recoverPassword()" [disabled]="!verifyform.valid || valid ">Submit</button>
+                </div>
+            </div>
+            <div style="display:flex;flex-flow:row wrap;justify-content:center;margin-top: 15px" *ngIf="status=='True'">
+
+                <span id="sign-up">Didn't receive an email?</span>
+
+                <button mat-raised-button type="button" class="resend-btn" (click)="recoverPassword()"> Resend Link</button>
+
+            </div>
+        </mat-card>
+    </div>
+</form>

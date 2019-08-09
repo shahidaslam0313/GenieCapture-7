@@ -1,0 +1,271 @@
+<app-loader>
+</app-loader>
+
+
+<div class="payment-container" >
+
+    <mat-card class="layout mat-elevation-z7 mat-cards">
+
+
+        <div [className]="flipclass">
+            <div class="flip">
+                <div class="front">
+                    <div class="chip"></div>
+                    <div class="logo"> <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px"
+                            height="47.834px" viewBox="0 0 47.834 47.834"
+                            style="enable-background:new 0 0 47.834 47.834;">
+                            <g>
+                                <g> </g>
+                            </g>
+                        </svg> </div>
+                    <div class="card-holder sh"> <label>Nick Name</label>
+                        <div>{{form.controls.nick_name.value}}</div>
+                    </div>
+                    <div class="card-holder"> <label>Card Number</label>
+                        <div>{{form.controls.cardnumber.value}}</div>
+                    </div>
+                    <div class="card-expiration-date"> <label>Expiry Date</label>
+                        <div>{{form.controls.cardexpiration.value}}</div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="strip"></div>
+                    <div class="logo"> <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px"
+                            height="47.834px" viewBox="0 0 47.834 47.834"
+                            style="enable-background:new 0 0 47.834 47.834;">
+                            <g>
+                                <g> </g>
+                            </g>
+                        </svg> </div>
+                    <div class="card-expiration-date"> <label>Expiry Date</label>
+                        <div>{{form.controls.cardexpiration.value}}</div>
+                    </div>
+                    <div class="cvv"> <label>CVV</label>
+                        <div>{{form.controls.cardcode.value}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div [className]="flipclass">
+            <div class="flip">
+                <div class="front">
+                    <div class="chip"></div>
+                    <div class="logo">
+                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                        </svg>
+                    </div>
+                    <div class="card-holder" >
+                        <label>Nickname</label>
+                        <div>{{form.controls.nick_name.value}}</div>
+                    </div>
+                    <div class="card-holder">
+                        <label>Card Number</label>
+                        <div>{{form.controls.cardnumber.value}}</div>
+                    </div>
+                    <div class="card-expiration-date">
+                        <label>Expiry Date</label>
+                        <div>{{form.controls.cardexpiration.value}}</div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="strip"></div>
+                    <div class="logo">
+                        <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
+                            <g>
+                                <g>
+
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                    <div class="card-expiration-date">
+                        <label>Expiry Date</label>
+                        <div>{{form.controls.cardexpiration.value}}</div>
+                    </div>
+                    <div class="ccv">
+                        <label>CVV</label>
+                        <div>{{form.controls.cardcode.value}}</div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <form [formGroup]="form" class="support-placeholder">
+            <div class="rows" >
+                <mat-form-field class="cardType">
+                    <mat-select placeholder="Card-Type" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
+                        <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">
+                            {{card_get_datat.viewValue}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                  <mat-form-field>
+                      <input matInput type="text" [textMask]="{mask: cardmask}" placeholder="Credit Card Number" formControlName="cardnumber">
+                      <mat-error *ngIf="form.controls.cardnumber.touched && form.controls.cardnumber.invalid">
+                          <mat-error *ngIf="form.controls.cardnumber.errors.required">
+                              Card number cannot be empty
+                          </mat-error>
+                          <mat-error *ngIf="cardexist">
+                              This Card Number already exist.
+                          </mat-error>
+                      </mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+               
+
+                <mat-form-field>
+                    <input matInput maxlength={{max}} minlength={{min}} placeholder="CVV" formControlName="cardcode">
+                    <mat-error *ngIf="form.controls['cardcode'].invalid">
+                        {{ cvvErrMsg() }}
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input matInput placeholder="Expiry Date (MM/YY)" [textMask]="{mask: mask ,keepCharPositions:true}" type="text" formControlName="cardexpiration" #exp (change)="chek(exp.value)" (input)="VerifyDate(exp.value)">
+                    <mat-error *ngIf="form.controls['cardexpiration'].invalid">
+                        {{ expDateErrMsg() }}
+                    </mat-error>
+                    <mat-hint *ngIf="verifyDate" style="color:#f44336"> Invalid Date</mat-hint>
+                </mat-form-field>
+          
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input class="text_captilize" matInput placeholder="Street Address" maxlength="300" type="text" formControlName="str_add">
+                    <mat-error *ngIf="form.controls.str_add.touched && form.controls.str_add.invalid">
+                        <mat-error *ngIf="form.controls.str_add.errors.required">
+                            Street address cannot be empty
+                        </mat-error>
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6 zip">
+                <mat-form-field>
+                    <input matInput placeholder="Zip Code" maxlength="5" formControlName="zip_code" #zipcode1
+                    (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1  step="1" required (keydown.space)="$event.preventDefault()"
+                    >
+                    <mat-error *ngIf="form.controls['zip_code'].invalid">
+                        {{ zipCodeErrMsg() }}
+                    </mat-error>
+                </mat-form-field>
+                <p class="clr_red" *ngIf="invalid  && !model.city && !model.state && !model.country">
+                    Invalid Zipcode
+                  </p>
+                  <p *ngIf="!invalid  && model.city && model.state && model.country">
+                  </p>
+              </div>
+              
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input class="text_captilize" matInput placeholder="City" type="text" formControlName="city" readonly [(ngModel)]="model.city">
+                    <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
+                    
+
+                    </mat-error>
+                </mat-form-field>
+           
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input matInput placeholder="State" type="text" formControlName="state" readonly [(ngModel)]="model.state">
+                    <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
+                      
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input matInput placeholder="Country" type="text" formControlName="country" readonly [(ngModel)]="model.country">
+                    <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
+                        
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input class="text_captilize" matInput type="text" placeholder="Nick Name" formControlName="nick_name">
+                    <mat-error *ngIf="form.controls['nick_name'].invalid">
+                        {{ nickNameErrMsg() }}
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input class="text_captilize" matInput type="text" placeholder="Cardholder Name" formControlName="card_holder">
+                    <mat-error *ngIf="form.controls['card_holder'].invalid">
+                        {{ cardHolderErrMsg() }}
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-12 p-2">
+          
+                <mat-slide-toggle [checked]="agent === 'true' ? true : false" (change)="setValue( agent, $event )">
+                    <span class="stay"> Enroll in Autopay - Set this card as recurring payment method</span>
+                </mat-slide-toggle>
+              </div>
+              <div class="col-sm-12 add-button text-center">
+                    <button mat-raised-button class="btn-submit" (click)="proceed()" [disabled]="!form.valid || valid || verifyDate">Add</button>
+                    <app-loader>
+                    </app-loader>
+                     
+              </div>
+              
+            </div>
+         
+        </form>
+    </mat-card>
+</div>
+<div  class="methods">
+    <div class="paymentMethods">
+        <h4>Payment Methods</h4>
+    </div>
+    <mat-card class="cards mat-elevation-z7 " *ngIf="!addPayment">
+        <table class="table  history-table">
+            <thead class="table-header">
+                <tr>
+                    <th>Nick Name</th>
+                    <th>Card Number</th>
+                    <th>Expiry Date</th>
+                    <th>Auto Pay</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let i of savedMethods">
+                <tr>
+                    <td>{{i.nick_name}}</td>
+                    <td>{{i.cardnumber1}}</td>
+                    <td>{{i.cardexpiration1}}</td>
+                    <td [ngClass]="{
+                    'negative':i.defalt==false,
+                    'positive':i.defalt==true}">
+                        <mat-icon *ngIf="i.defalt">done_all</mat-icon>
+                        <mat-icon *ngIf="!i.defalt">close</mat-icon>
+                    </td>
+                    <td> <button mat-icon-button (click)="editDialog(i)"><mat-icon>edit</mat-icon></button></td>
+                    <td>
+                        <button mat-icon-button (click)="DeleteSavedAccount(i.id)">
+                     <mat-icon >delete_sweep</mat-icon>
+                </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <div class="no_save_card" *ngIf="noMethodSaved">
+            <span>No card is saved. Click Add New Card to add payment methods.</span>
+        </div>
+
+    </mat-card>
+</div>

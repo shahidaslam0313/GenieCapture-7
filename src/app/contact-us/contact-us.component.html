@@ -1,0 +1,86 @@
+
+    <div class="container-fluid bg-white padding-zero">
+      <div class="container">
+          <h2 id="align">Contact Us</h2>
+          <form [formGroup]="form" #f="ngForm" class="contact-us">
+              <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 padding-zero">
+                  <div class="col-lg-6 col-sm-6 col-md-6 ">
+                      <div class="contactInputs">
+                          <div class="col-lg-12 col-sm-12 col-md-12 ">
+                              <mat-form-field>
+                                  <input matInput placeholder="Name" type="text" name="name" maxlength="100" formControlName="name" required>
+                                  <mat-error *ngIf="form.controls.name.value == ''"><strong>Please provide your
+                                          name</strong>
+                                  </mat-error>
+                                  <mat-error *ngIf="form.controls.name.hasError('pattern')"><strong>Only alphabets are
+                                          allowed</strong>
+                                  </mat-error>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-lg-12 col-sm-12 col-md-12  ">
+                              <mat-form-field>
+                                  <input matInput placeholder="Email" type="email" name="email" maxlength="240" formControlName="email" required>
+                                  <mat-error *ngIf="form.controls.email.hasError('pattern')"><strong>Email format is
+                                          invalid</strong>
+                                  </mat-error>
+                                  <mat-error *ngIf="form.controls.email.value == ''"><strong>Please provide
+                                          email</strong>
+                                  </mat-error>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-lg-12 col-sm-12 col-md-12  ">
+                              <mat-form-field>
+                                  <input matInput placeholder="Phone No." type="tel" maxlength="20" required name="phone" [textMask]="{mask: mask}" formControlName="phone">
+                                  <mat-error *ngIf="form.controls.phone.value == ''"><strong>Please provide phone
+                                          no</strong>
+                                  </mat-error>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-6 col-md-6 ">
+                      <div class="contactInputs">
+                          <div class="col-lg-12 col-sm-12 col-md-12 ">
+                              <mat-form-field hintLabel="Max 1000 characters">
+                                  <textarea matInput placeholder="Message" formControlName="message" maxlength="1000" #message required></textarea>
+                                  <mat-error *ngIf="form.controls.message.value == ''"><strong>Message cannot be
+                                          empty</strong>
+                                  </mat-error>
+                                  <mat-hint align="end">{{message.value?.length || 0}}/1000</mat-hint>
+                              </mat-form-field>
+                          </div>
+                          <div class="contactRecap">
+                              <div>
+                                  <app-recapcha></app-recapcha>
+                                  <span class="error-block" *ngIf="isequal==false">*Please enter above text</span>
+                              </div>
+                              <div class="send-message">
+                                  <button type="button" class="btn btn-primary" [disabled]="!form.valid || valid" (click)="onSubmit()">
+                                    <i aria-hidden="true" class="fa fa-arrow-up" title="Send Message"></i>Send Message
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+
+      </div>
+      <div class="row">
+          <div class="col-md-8">
+              <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.1120495365667!2d-96.82707228547686!3d32.948050982553376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c212ff30b0a0f%3A0x168f78d4e3aff0b3!2s5050+Quorum+Dr+%23700%2C+Dallas%2C+TX+75254%2C+USA!5e0!3m2!1sen!2s!4v1563027275737!5m2!1sen!2s" frameborder="0" style="border:0;width:100%; height:250px;" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4 genie">
+                <h2 class="">GenieCapture</h2>
+                <h5>5050 Quorum Drive Ste 700 Dallas TX 75254</h5>
+                <h2 class="">Establish Contact</h2>
+                <h5 class="phone-contact">
+                    <i class="fa fa-envelope-o"></i>&nbsp;&nbsp;<span>Email: </span> contact AT geniecapture DOT com<br>
+                    <i class="fa fa-phone"></i>&nbsp;&nbsp; <span>Voice: </span> +1-214-302-7330<br>
+            
+                </h5>
+            
+            </div>
+      </div>
+
+    </div>

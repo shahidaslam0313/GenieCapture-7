@@ -1,0 +1,50 @@
+<app-loader></app-loader>
+<div class="tickets">
+    <mat-card-header>
+        <mat-card-title>Your Ticket Status</mat-card-title>
+    </mat-card-header>
+    <mat-card class="mat-elevation-z7 card ">
+        <mat-card-content>
+            <table class="table history-table" *ngIf="!err">
+                <thead class="table-header">
+                    <tr>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Query</th>
+                        <th>Reply</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let i of data">
+                    <tr *ngIf="!err">
+                        <td>{{i?.email}}</td>
+                        <td>{{i?.subject }}</td>
+
+                        <td>{{i?.message }}</td>
+
+                        <td>
+                            <span *ngIf="i.replyofmessage==null">
+                                    No Reply Yet
+                            </span>
+                            <span *ngIf="i.replyofmessage!=null">
+                                  {{i?.replyofmessage}}
+                            </span></td>
+                        <td [ngClass]="{
+                             'negative':i.status==false,
+                             'positive':i.status==true}">
+                            <span *ngIf="i.status">Resolved</span>
+                            <span *ngIf="!i.status">Not Resolved</span>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="err" class="noRecord">
+                <h5>{{errorHeading}}</h5>
+                <p>{{errorMsg}}</p>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

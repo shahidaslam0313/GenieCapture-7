@@ -1,0 +1,58 @@
+<app-loader>
+    </app-loader>
+    
+      <mat-card class="layout mat-elevation-z7 ">
+        <mat-card-header>
+          <mat-card-title>
+            Purchase History
+          </mat-card-title>
+        </mat-card-header>
+      <mat-card-content>
+        <table class="table history-table" *ngIf="!noMethodSaved">
+          <thead class="table-header">
+            <tr>
+              <th> Payment Method</th>
+              <th>Amount</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Status</th>
+              <th>Subscription Type</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let i of personal">
+            <tr>
+              <td>{{i?.card_type}}</td>
+              <td> $ {{i?.amount }}</td>
+              <td>{{i?.temdate }}</td>
+              <td>{{i?.enddate }}</td>
+              <td [ngClass]="{
+                         'negative':i.activepayment=='Expired',
+                         'positive':i.activepayment=='Active'}">
+                {{i?.activepayment}}
+              </td>
+              <td>{{i?.package }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="no_save_card" *ngIf="noMethodSaved">
+          <span>No plans now. Click <a routerLink="/pricing">here</a> to purchase subscription now.</span>
+        </div>
+      </mat-card-content>
+        <div class="paginator" *ngIf="show">
+          <button  mat-icon-button (click)="firstPage()" [disabled]="previous">
+            <mat-icon> first_page</mat-icon>
+          </button>
+          <button  mat-icon-button (click)="previousPage()" [disabled]="previous">
+            <mat-icon> keyboard_arrow_left</mat-icon>
+          </button>
+          <h5> {{pagenum}} of {{pages}} </h5>
+          <button  mat-icon-button (click)="nextPage()" [disabled]="next">
+            <mat-icon> keyboard_arrow_right</mat-icon>
+          </button>
+          <button  mat-icon-button (click)="LastPage()" [disabled]="next">
+            <mat-icon>last_page</mat-icon>
+          </button>
+        </div>
+      </mat-card>
+    
+    

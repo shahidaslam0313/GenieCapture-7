@@ -1,0 +1,60 @@
+<div class="admin-home-palceholder">
+    <span>Total Records: {{length}}</span>
+    <div>
+        <button mat-icon-button (click)="refresh()">
+            <mat-icon>refresh</mat-icon>
+        </button>
+        <button mat-icon-button (click)="searchDialog()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+</div>
+<mat-card class="card mat-elevation-z7 ">
+    <mat-card-header>
+        <mat-card-title>Payment Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table history-table">
+
+            <thead class="table-header">
+                <tr>
+                    <th>Nick Name</th>
+                    <th>Cardholder Name</th>
+                    <th>Email</th>
+                    <th>Plan</th>
+                    <th>Amount</th>
+                    <th>Card Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let i of payments">
+                <tr *ngIf="!err">
+                    <td>{{i?.nick_name }}</td>
+                    <td>{{i?.cardholder}} </td>
+                    <td>{{i?.email}}</td>
+                    <td>
+                        <span *ngIf="i.package==0">Free Trial</span>
+                        <span *ngIf="i.package==1">Monthly</span>
+                        <span *ngIf="i.package==12">Yearly</span>
+                    </td>
+                    <td>{{i?.amount}}</td>
+                    <td>{{i?.card_type}} </td>
+                    <td>{{i?.temdate | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{i?.enddate | date: 'dd/MM/yyyy'}}</td>
+                    <td [ngClass]="{
+                         'negative':i.activepayment==false,
+                         'positive':i.activepayment==true}">
+                        <span *ngIf="i.activepayment">Active</span>
+                        <span *ngIf="!i.activepayment">Expired</span>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+    <div *ngIf="err" class="noRecord">
+        <p>No record found</p>
+    </div>
+</mat-card>

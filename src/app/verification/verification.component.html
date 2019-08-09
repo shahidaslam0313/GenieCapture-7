@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="heading text-center">
+        <div class="d">
+            <i class="material-icons" *ngIf="data ?.heading == 'Already Verified'" style="color:red;font-size: 43px;">
+          sentiment_satisfied_alt
+           </i>
+            <i class="material-icons" *ngIf="data ?.heading == 'Thank You'" style="color:green;font-size: 43px;">
+         check_circle
+           </i>
+            <i class="material-icons" *ngIf="data ?.heading == 'Sorry'" style="color:red;font-size: 43px;">
+            sentiment_dissatisfied
+            </i>
+            <span>{{data?.heading}}</span>
+
+        </div>
+        <div class="subheading">
+            <p *ngIf="data ?.heading == 'Already Verified'">Your account is already verified. Please <a routerLink="/login">login</a> to continue.</p>
+            <p *ngIf="data ?.heading == 'Thank You'">Your account has been verified. Please <a routerLink="/login">login</a> to continue.</p>
+            <p *ngIf="data ?.heading == 'Sorry'">Something went wrong. Please <a routeLink="/contact">contact us</a> to verify your account.</p>
+        </div>
+    </div>
+</div>

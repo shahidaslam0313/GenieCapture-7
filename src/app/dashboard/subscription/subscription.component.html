@@ -1,0 +1,40 @@
+<app-loader>
+    </app-loader>
+    
+    
+    <mat-card class="layout mat-elevation-z7 ">
+    <mat-card-header >
+    <mat-card-title>
+        Subscription
+    </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <table class="table  history-table" *ngIf="!noMethodSaved">
+           <thead class="table-header">
+               <tr>
+                   <th>Subscription Name</th>
+                   <th>Price</th>
+                   <th>Start Date</th>
+                   <th>Expiry Date</th>
+                   <th>Status</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>{{pkg}}</td>
+                   <td><span *ngIf="symbol">$</span> {{personal?.amount}}
+                    </td>
+                   <td>{{personal?.paymentdatetime}}</td>
+                   <td>{{personal?.enddate}}</td>
+                   <td><span *ngIf="show"  class="success" title="Active">{{msg}}</span>
+                       <span *ngIf="show2" class="danger" title="Expired">{{msg}}</span></td>
+    
+           </tbody>
+       </table>
+    <div class="no_save_card" *ngIf="noMethodSaved"> 
+        <span>No plans subscribed. Click <a routerLink="/pricing">here</a> to purchase subscription.</span>
+    </div>
+    </mat-card-content>
+    </mat-card>
+    
+    

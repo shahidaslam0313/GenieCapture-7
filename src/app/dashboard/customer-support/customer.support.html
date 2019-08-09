@@ -1,0 +1,90 @@
+
+<ul class="nav nav-tabs pd-top-10px" id="myTab" role="tablist">
+  <li class="nav-item active">
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#create_new" role="tab" aria-controls="create_new"
+      aria-selected="true">Create New Support Ticket</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Support_Center" role="tab" aria-controls="Support_Center"
+      aria-selected="false">Support Center</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade active in" id="create_new" role="tabpanel" aria-labelledby="home-tab">
+    <div class="layout">
+      <mat-card class="mat-elevation-z8">
+          <form class="support-placeholder" [formGroup]=form>
+              <mat-form-field>
+                  <mat-select placeholder="Please select your query" formControlName="subject" required>
+                      <mat-option [value]="query.key" (onSelectionChange)="change($event)" *ngFor="let query of queryList">{{query.value}}</mat-option>
+                  </mat-select>
+                  <mat-error>Please select a query</mat-error>
+              </mat-form-field>
+              <mat-form-field *ngIf="isSubject">
+                  <input class="text_captilize" matInput placeholder="Subject" [formControl]=newsubject [(ngModel)]="topic" name=topic (input)="changeSubject($event)" required>
+                  <mat-error *ngIf="newsubject.hasError('required')">Please provide subject</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field>
+                  <textarea matInput placeholder="Message" formControlName=message required></textarea>
+                  <mat-error>Please provide message</mat-error>
+              </mat-form-field>
+              <button mat-raised-button type=button class="btn-submit" (click)="CustomerSupport()" [disabled]="disable || !form.valid">Submit</button>
+          </form>
+      </mat-card>
+  </div>
+
+  </div>
+
+  <div class="tab-pane fade" id="Support_Center" role="tabpanel" aria-labelledby="profile-tab">
+    <!-- <div class="tickets">
+      <mat-card-header>
+          <mat-card-title>Your Ticket Status</mat-card-title>
+      </mat-card-header>
+      <mat-card class="mat-elevation-z7 card ">
+          <mat-card-content>
+              <table class="table history-table" *ngIf="!err">
+                  <thead class="table-header">
+                      <tr>
+                          <th>Email</th>
+                          <th>Subject</th>
+                          <th>Query</th>
+                          <th>Reply</th>
+                          <th>Status</th>
+                      </tr>
+                  </thead>
+                  <tbody *ngFor="let i of data">
+                      <tr *ngIf="!err">
+                          <td>{{i?.email}}</td>
+                          <td>{{i?.subject }}</td>
+  
+                          <td>{{i?.message }}</td>
+  
+                          <td>
+                              <span *ngIf="i.replyofmessage==null">
+                                      No Reply Yet
+                              </span>
+                              <span *ngIf="i.replyofmessage!=null">
+                                    {{i?.replyofmessage}}
+                              </span></td>
+                          <td [ngClass]="{
+                               'negative':i.status==false,
+                               'positive':i.status==true}">
+                              <span *ngIf="i.status">Resolved</span>
+                              <span *ngIf="!i.status">Not Resolved</span>
+                          </td>
+  
+                      </tr>
+                  </tbody>
+              </table>
+              <div *ngIf="err" class="noRecord">
+                  <h5>{{errorHeading}}</h5>
+                  <p>{{errorMsg}}</p>
+              </div>
+          </mat-card-content>
+  
+      </mat-card>
+  
+  </div> -->
+  </div>
+</div>

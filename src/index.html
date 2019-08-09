@@ -1,0 +1,42 @@
+<!Doctype html>
+<html>
+
+<head>
+    <base href='/'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon-g.ico" />
+    <link rel="icon" type="image/png" href="./assets/Circle.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>GenieCapture</title>
+
+    
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+
+       
+</head>
+
+<body class="bootstrap-collapse" style="display: none;">
+    <app-my-app>
+    </app-my-app>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+          $("#show_sidebar").click(function(){
+            $("#sidebar_visible").show("slow");
+          });
+          $("#close_sidebar").click(function(){
+            $("#sidebar_visible").hide("slow");
+          });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<app-loader>
+</app-loader>
+<div class="move-down">
+    <div class="container section-margin">
+        <mat-card class="layout">
+            <mat-card class="title mat-elevation-z4">
+                <h3>Signup with GenieCapture to embark on an next-gen journey of bleeding edge content generation
+                </h3>
+            </mat-card>
+            <form [formGroup]="register" novalidate class="signup_login">
+                <div class="inner-layout">
+                    <mat-form-field id="capitalize" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <input matInput class="input-size" type="text" formControlName="firstname" placeholder="First Name" required />
+                        <mat-error *ngIf="register.controls['firstname'].invalid">{{ firstNameErrMsg() }}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field id="capitalize" class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <input matInput type="text" class="input-size" formControlName="lastname" placeholder="Last Name" required />
+                        <mat-error *ngIf="register.controls['lastname'].invalid">
+                            {{ lastNameErrMsg()}}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <input matInput type="text" class="input-size" formControlName="organization" placeholder="Organization" required />
+                        <mat-error *ngIf="register.controls['organization'].invalid">
+                            {{ orgErrMsg() }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="inner-layout">
+                    <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <input matInput type="text" class="input-size" (ngModelChange)="emailCheck(email1.value)" formControlName="email" #email1 placeholder="Email" required />
+                        <mat-error *ngIf="register.controls['email'].invalid">
+                            {{ emailErrMsg() }}
+                        </mat-error>
+                        <mat-hint *ngIf="emailexist" style="color:#c00">This email already exist.</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <input matInput placeholder="Phone No." class="input-size" required name="phone" [textMask]="{mask: mask}" formControlName="contact">
+                        <mat-error *ngIf="register.controls.contact.value == ''"><strong>Please Provide Phone
+                                No</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="inner-layout">
+                    <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                        <input matInput id="password" class="input-size" formControlName="password" placeholder="Password" [type]="hide ? 'password' : 'text'" required />
+                        <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                        <mat-error *ngIf="register.controls['password'].invalid">
+                            {{ passErrMsg() }}
+                        </mat-error>
+
+                    </mat-form-field>
+                    <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <input matInput type="password" class="input-size" formControlName="confirmPassword" placeholder="Confirm Password" [type]="hide ? 'password' : 'text'" required>
+
+                        <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                        <mat-error *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value=='' ">
+                            Password does not match
+                        </mat-error>
+
+                    </mat-form-field>
+
+                </div>
+
+                <div class="bottom-layout">
+                    <div>
+                        <div>
+                            <app-recapcha></app-recapcha>
+                        </div>
+                        <div class="error-block" *ngIf="isequal==false">
+                            <span>*Please enter above text</span>
+                        </div>
+                    </div>
+                    <div class="inside-bottom">
+                        <div>
+                            <label>
+                                <mat-slide-toggle [checked]="agent === 'true' ? true : false"
+                                    (change)="setValue( agent, $event )">
+                                </mat-slide-toggle>
+                                <span class="signs">I understand and agree that the use of this Website, Desktop App and
+                                    ALL other related Technology Platforms are subject to the
+                                    <a routerLink="/terms">Terms of Use</a>
+                                    and
+                                    <a routerLink="/privacy-policy">Privacy Policy</a></span>
+                            </label>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn-submit" mat-raised-button [disabled]="!passer || !register.valid" (click)="myFunc(); onRegister()">Sign
+                                Up</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<mat-card class="cards mat-elevation-z3">
+    <div class="main">
+        <img [src]="imgName" alt="recapcha">
+        <button class="signup-repacha" (click)="resetImg()" mat-icon-button>
+          <mat-icon>cached</mat-icon>
+        </button>
+    </div>
+
+    <input class="recapcha-input" [(ngModel)]="capchaText" (ngModelChange)="checkChange()" placeholder="Verify Above Text">
+
+</mat-card>

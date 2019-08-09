@@ -1,0 +1,31 @@
+<app-header>
+</app-header>
+<div class="wrapper" style="overflow: hidden ;">
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <div class="sidebar custom" id="sidebar_visible">
+                    <app-sidebar-cmp></app-sidebar-cmp>
+                </div>
+            </div>
+
+            <div class="childview">
+                <button class="btn btn-rose" id="show_sidebar">
+                  <span><i class="fa fa-bars"></i></span>  User Dashboard
+                  </button>
+                <div class="bodysetter">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+            <div class="last-footer-2">
+                <div class="Copyright col-sm-6">
+                    Copyright © 2019, GenieCapture. All rights reserved
+                </div>
+                <div class="terms-of-use col-sm-6 text-right">
+                    <a href="terms" target="_blank" id="link">Terms of Use </a>
+                    <span class="space">| </span>
+                    <a href="privacy-policy" target="_blank" id="link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,61 @@
+<app-loader>
+</app-loader>
+<div class="background">
+    <mat-card class="mainCard">
+        <mat-card class="title mat-elevation-z4">
+            <h3>Sign In to Your Account</h3>
+        </mat-card>
+        <form autocomplete="off" [formGroup]="login" (ngSubmit)="onLogin()" class="signup_login login-form">
+          
+                <mat-form-field>
+                    <input matInput formControlName="username" placeholder="Email">
+                    <mat-error *ngIf="login.controls.username.value == ''">
+                        <strong class="error-block">Please provide email</strong>
+                    </mat-error>
+                    <mat-error *ngIf="login.controls.username.hasError('pattern')">
+                        Please enter a valid email address
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput id="password" formControlName="password" placeholder="Password" [type]="hide ? 'password' : 'text'" />
+                    <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                    <mat-error *ngIf="login.controls.password.value == ''">
+                        <strong class="error-block">Please provide password</strong>
+                    </mat-error>
+                </mat-form-field>
+           
+            <div class="stay-forgot">
+
+                <div class="innerdiv">
+                    <mat-slide-toggle [checked]="agent === 'true' ? true : false" (change)="setValue( agent, $event )">
+                        <span class="stay"> Stay Signed In</span>
+                    </mat-slide-toggle>
+                    <a routerLink="/recover-my-account">
+                        Forgot password?
+                    </a>
+                </div>
+                <div>
+                    <div>
+                        <app-recapcha></app-recapcha>
+                    </div>
+                    <div *ngIf="isequal==false" class="error">
+                        <span>Please enter above text</span>
+                    </div>
+                </div>
+
+            </div>
+            <button class=" btn button">Sign In</button>
+        </form>
+        <div>
+            <div class="noAcount">
+                <span id="sign-up">No Account Yet ? </span>
+                <a class="sign-up" routerLink="/sign-up" id="sign"> Sign Up </a>
+            </div>
+            <div class="terms-privacy">
+                <a target="_blank" routerLink="/terms">Terms of Use</a>
+                <a target="_blank" routerLink="/privacy-policy">Privacy Policy</a>
+            </div>
+        </div>
+
+    </mat-card>
+</div>

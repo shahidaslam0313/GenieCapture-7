@@ -1,0 +1,42 @@
+
+<div class="login-form-1-img">
+    <div class="container">
+        <div class="login-form-1-center">
+            <form class="login-form-1 sh-signup-form-fix" style="width:110%">
+                <div class="login-form-1-header">
+                    <h3>Verify Your Account</h3>
+                </div>
+
+                <div class="card-content" style="height:100px; margin:30px;">
+                    <div class="form-group label-floating" style="margin-left: 9px;">
+
+                        <!-- <div class="myCol"> -->
+                        <div class="row">
+                            <mat-form-field id="cody" style="margin-top:15px; width: 103%!important;" class="col-sm-12">
+                                <input matInput type="text" id="code" placeholder="Enter the Code" name="code" [(ngModel)]="code" [formControl]="vcode" required maxlength="6" />
+                                <mat-error *ngIf="vcode.hasError('required')" style=" margin-top: 2px ">
+                                    <strong class="error-block ">Please provide Code</strong>
+                                </mat-error>
+                                <mat-error *ngIf="vcode.hasError('pattern')" style=" margin-top: 2px ">
+                                    <strong class="error-block ">Only Numbers</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                </div>
+                <div class="clearfix "></div>
+                <div class="form-footer " style="margin-bottom:300px; ">
+                    <div class="form-group " style="display:flex;  justify-content: center;">
+                        <button type="submit " style="width: 80%;font-size: 24px !important;margin-top: -5px " class="btn btn-rose btn-fill btn-wd " [disabled]="vcode.value== '' " (click)="onCodeSubmit() ">Submit</button>
+                    </div>
+                    <div class="align">
+                        <!-- <button type="button" style="width: 80%;font-size: 24px !important;margin-top: -5px " class="btn btn-rose btn-fill btn-wd " (click)="verifySubmit() ">Resend Code</button> -->
+                        Didn't receive a verification email? <a style="cursor: pointer; margin-left: 5px;" (click)=verifySubmit()>Resend Code</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

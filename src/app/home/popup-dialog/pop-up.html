@@ -1,0 +1,30 @@
+<div class="background">
+    <div class="close-btn">
+        <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="times">
+        <div class="Timer">
+            <div class="datetime">
+                <span class="time">{{Dayss}}</span>
+                <span>Days</span>
+            </div>
+            <div class="datetime">
+                <span class="time">{{Hourss}}</span>
+                <span>Hrs</span>
+            </div>
+            <div class="datetime">
+                <span class="time">{{Minutess}}</span>
+                <span>Mins</span>
+            </div>
+            <div class="datetime">
+                <span class="time">{{Secondss}}</span>
+                <span>Secs</span>
+            </div>
+        </div>
+    </div>
+    <div class="footers">
+        <button mat-raised-button routerLink="/pricing" (click)="close()">Subscribe Now</button>
+    </div>
+</div>

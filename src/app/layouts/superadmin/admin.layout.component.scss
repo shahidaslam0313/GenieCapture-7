@@ -1,0 +1,43 @@
+.wrapper {
+    .childview {
+        width: calc(100% - 260px);
+        left: 260px;
+        position: relative;
+        padding: 15px;
+    }
+    .last-footer-2 {
+        width: calc(100% - 260px);
+        bottom: 0;
+        background-color: #1d1d1d;
+        padding: 10px;
+        color: #999;
+        font-weight: 500;
+        left: 260px;
+        position: fixed;
+        z-index: 1;
+    }
+    a {
+        color: #999;
+    }
+    a:hover {
+        color: white;
+    }
+}
+
+@media (max-width: 992px) {
+    .wrapper {
+        .childview {
+            width: 100%;
+            left: 0;
+            position: relative;
+            padding: 15px;
+        }
+        .last-footer-2 {
+            width: 100%;
+            bottom: 0;
+            background-color: #1d1d1d;
+            left: 0;
+            position: fixed;
+        }
+    }
+}
