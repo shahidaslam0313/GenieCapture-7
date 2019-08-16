@@ -114,7 +114,7 @@
                 </p>
                 <form [formGroup]="form" name="form">
                     <div class="input-group footer-input">
-                        <input class="form-control " formControlName="email" placeholder="Subscribe to GenieCapture" type="email" id="email" required>
+                        <input class="form-control " formControlName="email" placeholder="Email Address" type="email" id="email" required>
                         <div class="input-group-btn">
                             <button type="button" (click)="onSubmit(form.controls.email.value)" class="btn send-btn" type="button" [disabled]="!form.valid || valid">
                         <i class="fa fa-arrow-up footer-icon"></i>

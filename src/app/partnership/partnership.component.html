@@ -7,7 +7,7 @@
                 <form [formGroup]="form">
                     <div class="mainFlex">
                         <mat-form-field>
-                            <input matInput formControlName="name">
+                            <input matInput class="text_captilize" formControlName="name">
                             <mat-placeholder>Name *</mat-placeholder>
                             <mat-error *ngIf="form.controls.name.value == ''">
                                 Please provide name
@@ -24,7 +24,7 @@
                             </mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput formControlName="companyname">
+                            <input matInput class="text_captilize" formControlName="companyname">
                             <mat-placeholder>Company Name *</mat-placeholder>
                             <mat-error *ngIf="form.controls.companyname.value == ''">
                                 Please provide company name

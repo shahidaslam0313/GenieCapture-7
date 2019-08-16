@@ -14,3 +14,16 @@
   font-weight: 700;
   margin-bottom: 0;
 }
+.no_save_card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+.no_save_card span{
+  font-size: 18px;
+  font-weight: 600;
+}
+.no_save_card span a{
+  color: #337ab7;
+}

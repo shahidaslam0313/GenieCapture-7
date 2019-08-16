@@ -576,7 +576,8 @@ ngx-carousel button[NgxCarouselNext] {
 
 .aligns {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    padding: 5px;
 }
 
 .sale-btn {
@@ -699,7 +700,7 @@ button.close {
         line-height: 22px
     }
     .choose-criteria {
-        padding: 18px;
+       
         min-height: 100px;
         background: #000
     }
