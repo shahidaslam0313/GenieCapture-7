@@ -194,7 +194,7 @@
 <div *ngIf="pkgsub" data-wow-delay=".5s">
 
     <div class="row planSelect">
-      <div class="col-sm-3">
+     
           <div class=" selected-plan">
               <div class="single-pricings ">
           
@@ -238,10 +238,7 @@
           
               </div>
             </div>
-      </div>
-     
-
-      <div class="col-sm-9">
+      
         <div class="right-section">
           <div class=" header-pricing">
             <div class="plan-type">
@@ -361,7 +358,7 @@
                   <mat-hint *ngIf="verifyDate" style="color:#f44336"> Invalid Date</mat-hint>
                 </mat-form-field>
                 <mat-form-field>
-                  <input class="text_captilize" matInput placeholder="Street Address" maxlength="300" type="text"
+                  <input  class="text_captilize" matInput placeholder="Street Address" maxlength="300" type="text"
                     formControlName="str_add" required>
                   <mat-error *ngIf="form.controls.str_add.touched && form.controls.str_add.invalid">
                     <mat-error *ngIf="form.controls.str_add.errors.required">
@@ -442,7 +439,7 @@
 
           <div *ngIf="!isright" class="move-down payment-placeholder row">
               <div class="spanss spans">
-                  <span >Your credit card should be validated not charged.</span>
+                  <span *ngIf="isTrial">Your credit card should be validated not charged.</span>
                 </div>
             <div class="col-sm-12">
                 <form [formGroup]="defaultCards">
@@ -468,7 +465,7 @@
                 </div>
               </div>
         </div>
-      </div>
+    
 
     </div>
 

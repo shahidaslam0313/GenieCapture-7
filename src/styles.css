@@ -1893,7 +1893,6 @@ ul li {
 }
 
 .choose-criteria {
-  padding: 20px 0;
   min-height: 100px;
   background: #000
 }
@@ -4425,7 +4424,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 20px;
   border-radius: 5px;
   width: 421px;
-  margin-top: 43px !important
+  margin-top: 43px !important;
 }
 
 .img-holder {
@@ -4532,7 +4531,8 @@ textarea.mat-input-element {
   background: 0 0 !important;
   color: #000 !important;
   border: none !important;
-  box-shadow: none !important
+  box-shadow: none !important;
+  margin-bottom: 10px;
 }
 
 #show_sidebar span {
