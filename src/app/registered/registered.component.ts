@@ -133,7 +133,7 @@ export class RegisteredComponent implements OnInit, OnDestroy {
                         this.register.reset();
                         this.router.navigate(['/login'])
                     }
-                    else if (data._body == '"Sorry! You are already registered."')
+                    else if (data._body == '"Sorry You are already registered."')
                     swal({
                         type: 'error',
                         title: 'User already registered',
@@ -254,7 +254,7 @@ export class RegisteredComponent implements OnInit, OnDestroy {
       }
       passErrMsg()
       {return this.register.controls['password'].hasError('required') ? 'Please Provide Password' :
-        this.register.controls['password'].hasError('pattern') ? 'At least one uppercase letter, one number & one special character' :   
+        this.register.controls['password'].hasError('pattern') ? 'Password must be 8 characters long and must include 1 upper case, 1 lower case, 1 number and 1 special character' :   
       '';
       }
 }
