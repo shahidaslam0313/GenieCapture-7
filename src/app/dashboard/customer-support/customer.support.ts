@@ -14,6 +14,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
+import { Router } from "@angular/router";
 @Component({
   selector: 'customer-support',
   templateUrl: 'customer.support.html',
@@ -21,7 +22,7 @@ import {
 })
 export class CustomerSupportComponent implements OnInit {
 
-  constructor(private customerSupport: CustomerService, private fb: FormBuilder, private alert: SharedData) {}
+  constructor(private customerSupport: CustomerService,  private router: Router, private fb: FormBuilder, private alert: SharedData) {}
   form: FormGroup
   disable = true;
   topic;
@@ -31,6 +32,7 @@ export class CustomerSupportComponent implements OnInit {
       message: new FormControl("", Validators.required),
       subject: new FormControl("", Validators.required)
     })
+    this.getticketrecord();
   }
  subjects;
   CustomerSupport() {
@@ -54,7 +56,7 @@ export class CustomerSupportComponent implements OnInit {
       this.newsubject.reset();
     });
   }
-
+  record;
   isSubject
   queryList = [{
     key: "Billing",
@@ -85,6 +87,14 @@ export class CustomerSupportComponent implements OnInit {
     if (event.value != '') {
       this.disable = false
     }
+  }
+  queryid;
+  getid(id){
+    this.queryid = id;
+    console.log(this.queryid);
+    // alert(this.queryid);
+    localStorage.setItem('queryidget', this.queryid);
+    this.router.navigate(['/queryreply'], {queryParams: {'ticketid' : this.queryid}});
   }
   change(event) {
     if (event.isUserInput) {
@@ -121,4 +131,10 @@ export class CustomerSupportComponent implements OnInit {
 //        this.shared.AlertBox("error",err)
 //     })
 // }
+getticketrecord(){
+  this.customerSupport.supporttiket().subscribe( data => {
+    this.record = data['data'] ;
+    console.log(this.record);
+  })
+}
 }

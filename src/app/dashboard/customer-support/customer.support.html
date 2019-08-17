@@ -41,7 +41,7 @@
       <mat-card-header>
           <mat-card-title>Your Ticket Status</mat-card-title>
       </mat-card-header>
-      <mat-card class="mat-elevation-z7 card ">
+      <!-- <mat-card class="mat-elevation-z7 card ">
           <mat-card-content>
               <table class="table history-table" *ngIf="!err">
                   <thead class="table-header">
@@ -53,7 +53,7 @@
                           <th>Status</th>
                       </tr>
                   </thead>
-                  <tbody *ngFor="let i of data">
+                  <tbody *ngFor="let i of record">
                       <tr *ngIf="!err">
                           <td>{{i?.email}}</td>
                           <td>{{i?.subject }}</td>
@@ -83,8 +83,27 @@
               </div>
           </mat-card-content>
   
-      </mat-card>
-  
+      </mat-card> -->
+      <div class="table-responsive margin-top-20">
+        <table class="table payment-table">
+          <thead>
+            <tr>
+              <th>Ticket id</th>
+              <th>Subject</th>
+              <th>Description</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let card of record">
+                  <td>{{card.trackingid  }} </td>
+              <td>{{card?.subject}}</td>
+              <td>{{card?.message}}</td>
+              <td><button class="btn btn-rose btn-fill" (click)="getid(card.id)">Detail</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
   </div>
 </div>

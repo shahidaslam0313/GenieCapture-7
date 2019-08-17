@@ -34,6 +34,7 @@ import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { CountdownModule } from 'ng2-countdown-timer';
 // import { MatTabChangeEvent } from '@angular/material';
 import { CountdownTimerModule } from 'ngx-countdown-timer';
+import { ReplyComponent } from './dashboard/reply/reply.component';
 import 'hammerjs';
 import {
     MatAutocompleteModule,
@@ -239,6 +240,7 @@ export class MaterialModule {}
         AuthLayoutComponent,
         AdminLayoutComponent,
         HomeComponent,
+        ReplyComponent,
         HeaderComponent,
         UserSidebarComponent,
         PricingComponent,

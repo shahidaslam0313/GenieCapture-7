@@ -135,7 +135,7 @@ export class PricingComponent implements OnInit {
   toSelect
   showLoader;
   ngOnInit() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     this.Timer(1563009720000); 
     this.timers();
     this.agent = "true";
