@@ -19,13 +19,13 @@ return this.http.post("https://apis.geniecapture.com/user/help/",email).catch(th
         // alert(this.currentUser.token);
         let headers = new Headers({'Authorization': 'JWT ' + this.currentUser.token});
         headers.append('Content-Type', 'application/json'); 
-        return this.https.get("http://192.168.29.171:9000/user/all_user_tickets/",   {headers: headers}).map((res : Response) => res.json())
+        return this.https.get("https://apis.geniecapture.com/user/all_user_tickets/",   {headers: headers}).map((res : Response) => res.json())
             }
             
             eachview(id){
                 let headers = new Headers({'Authorization': 'JWT ' + this.currentUser.token});
                 headers.append('Content-Type', 'application/json');    
-                return this.https.get('http://192.168.29.171:9000/user/reply_ticket_User/' + id + '/', {headers: headers}).map((response: Response) => response.json());
+                return this.https.get('https://apis.geniecapture.com/user/reply_ticket_User/' + id + '/', {headers: headers}).map((response: Response) => response.json());
  
            }
 
@@ -33,7 +33,7 @@ return this.http.post("https://apis.geniecapture.com/user/help/",email).catch(th
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');     
             headers.append('Authorization', 'JWT ' + JSON.parse(localStorage.getItem('currentUser')).token);   
-    return this.https.post("http://192.168.29.171:9000/user/reply_ticket_User/" + id + '/',    
+    return this.https.post("https://apis.geniecapture.com/user/reply_ticket_User/" + id + '/',    
      JSON.stringify({
         
     "description": des,
