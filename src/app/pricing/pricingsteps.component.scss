@@ -1038,7 +1038,6 @@ svg:not(:root) {
   background: linear-gradient(135deg, #dfaa3a, #c49021);
   position: absolute;
   color: #fff;
-  font-family: Inconsolata;
   top: 0;
   left: 0;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
@@ -1237,6 +1236,10 @@ mat-list-item {
   padding: 20px;
   margin: 0 auto;
   min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .plans span{
   color: #282828;
