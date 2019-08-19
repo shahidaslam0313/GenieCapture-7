@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 page-title">
+      <span>Subject: <br>
+        <p class="rep_para"> {{subjests?.ticket_detail?.subject}}</p></span>
+    </div>
+    <div class="col-sm-6 page-title ">
+      <span>Description: <br>
+        <p class="rep_para">{{subjests?.ticket_detail?.message}} </p></span>
+    </div>
+  </div>
+  <div class="chat-box">
+    <form class="example-form" [formGroup]="form">
+      <div class="no-replay" *ngIf="show.length == '0'">
+        <h3 >No Reply yet</h3>
+      </div>
+      <div class="msg-area">
+
+        <div *ngFor="let data of show; let i=index">
+          <div class="row">
+            <div class=" user-text" *ngIf="data?.super_admin_status != true">
+              <span class="me">Me</span>
+              {{data?.description}}
+            </div>
+          </div>
+          <div class="row">
+            <div class=" admin-text" *ngIf="data?.super_admin_status == true">
+              <span class="admin">A</span>
+              {{data?.description}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+        <textarea placeholder="Description" class="form-control" formControlName="des"></textarea>
+        <div class="submit-div">
+        <button class="btn btn-primary" (click)="descriptionpost()" [disabled]="!form.valid">
+          Send
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

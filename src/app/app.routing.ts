@@ -30,7 +30,7 @@ import { VerifyCodeComponent } from './verifycode/verifycode.component';
 import { VerifyCodeComponent2 } from './verifycode2/verifycode2.component';
 import { WhatIsRfpComponent } from './what-is-rfp/what-is-rfp.component';
 import { OnlyLoggedInUsersGuard, OnlyLoggedOutUsersGuard } from './_guards/auth.guard';
-
+import { ReplyComponent } from './dashboard/reply/reply.component';
 export const AppRoutes: Routes = [{
         path: '',
         component: AuthLayoutComponent,
@@ -48,6 +48,9 @@ export const AppRoutes: Routes = [{
                 component: LoginComponent,
                 canActivate: [OnlyLoggedOutUsersGuard],
             },
+            { path: 'queryreply' , component: ReplyComponent,
+            
+        },
             {
                 path: 'login/ticket/:code',
                 component: LoginComponent,
@@ -107,6 +110,7 @@ export const AppRoutes: Routes = [{
                 component: RegisteredComponent,
                 canActivate: [OnlyLoggedOutUsersGuard],
             },
+            
             {
                 path: 'verify',
                 component: VerifyCodeComponent
