@@ -74,4 +74,6 @@
 .nav-link:focus{
   text-decoration: none;
 }
-
+.table{
+  table-layout: fixed;
+}

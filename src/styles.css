@@ -41,6 +41,9 @@ and also import other style files .bottom-lists ul li {
   .mrgn-tab {
     margin-bottom: 30px
   }
+  .genie{
+    padding: 0 30px;
+  }
 }
 
 .navbar-nav>li>a {
@@ -2902,7 +2905,7 @@ dialog-overview-example-dialog .forgot-pass {
 .btn {
   border-radius: 50px !important;
   margin-bottom: 4px;
-  padding: 5px 10px
+  padding: 6px 18px
 }
 
 .sign-up .form-group input {
