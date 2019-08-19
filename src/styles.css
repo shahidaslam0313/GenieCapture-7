@@ -1893,6 +1893,7 @@ ul li {
 }
 
 .choose-criteria {
+  padding: 20px 0;
   min-height: 100px;
   background: #000
 }
@@ -4424,7 +4425,7 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 20px;
   border-radius: 5px;
   width: 421px;
-  margin-top: 43px !important;
+  margin-top: 43px !important
 }
 
 .img-holder {
@@ -4531,8 +4532,7 @@ textarea.mat-input-element {
   background: 0 0 !important;
   color: #000 !important;
   border: none !important;
-  box-shadow: none !important;
-  margin-bottom: 10px;
+  box-shadow: none !important
 }
 
 #show_sidebar span {
@@ -4819,12 +4819,20 @@ body {
 .benner-conter {
   width: 300px;
   position: absolute;
-  bottom: 85px;
-  left: 25px;
+  top: 175px;
+  right: 55px;
 }
-
+.header-form.profile{
+  max-width: 200px;
+}
 .mainpagee .countdown .measurements {
   padding: 5px 10px !important;
 }
-
-/* End conter */
+@media (max-width: 768px){
+.navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+}

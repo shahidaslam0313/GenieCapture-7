@@ -1,4 +1,4 @@
-<div class="footer-position">
+<!-- <div class="footer-position">
     <div class="footer">
         <div class="inside-footer inside_left col-lg-3 col-md-3 col-sm-4">
             <div>
@@ -30,12 +30,7 @@
                                 <i aria-hidden="true" class="fa fa-facebook socio "></i>
                             </a>
                         </li>
-                        <!-- <li>
-                        <a routerLink="" target="_blank"  target="_blank">
-                            <i aria-hidden="true" class="fa fa-linkedin socio "></i>
-
-                        </a>
-                    </li> -->
+                        
                         <li>
                             <a href="https://twitter.com/CaptureGenie?lang=en" target="_blank" matTooltip="Our Twitter Page">
                                 <i aria-hidden="true" class="fa fa-twitter socio-1 "></i>
@@ -135,4 +130,146 @@
             <a href="privacy-policy" target="_blank" id="link">Privacy Policy</a>
         </div>
     </div>
+</div> -->
+
+<div class="footer-position">
+  <div class="footer">
+    <div class="inside-footer inside_left col-lg-3 col-md-3 col-sm-4">
+      <div>
+        <div>
+          <h2>Who Are We?</h2>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <a routerLink="/what-is-genie-capture">
+                <i aria-hidden="true" class="fa fa-chevron-right"></i> What is GenieCapture?
+              </a>
+            </li>
+            <li>
+              <a routerLink="/how-it-works">
+                <i aria-hidden="true" class="fa fa-chevron-right"></i> How it Works?
+              </a>
+            </li>
+            <li>
+              <a routerLink="/contact"> <i aria-hidden="true" class="fa fa-chevron-right"></i> Contact Us</a>
+            </li>
+          </ul>
+          <div>
+            <h2>Stalk Us</h2>
+          </div>
+          <ul class="footerUl">
+            <li>
+              <a class="icon-anchor" href="https://www.facebook.com/geniecapture/?modal=admin_todo_tour" target="_blank"
+                matTooltip="Our Facebook Page">
+                <i aria-hidden="true" class="fa fa-facebook socio "></i>
+              </a>
+            </li>
+            <!-- <li>
+                          <a routerLink="" target="_blank"  target="_blank">
+                              <i aria-hidden="true" class="fa fa-linkedin socio "></i>
+  
+                          </a>
+                      </li> -->
+            <li>
+              <a href="https://twitter.com/CaptureGenie?lang=en" target="_blank" matTooltip="Our Twitter Page">
+                <i aria-hidden="true" class="fa fa-twitter socio-1 "></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.pinterest.com/socialsupport0199" target="_blank" matTooltip="Our Pinterest Page">
+                <i aria-hidden="true" class="fa fa-pinterest socio-2"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/geniecapture.official/" target="_blank" matTooltip="Our Instagram Page">
+                <i aria-hidden="true" class="fa fa-instagram socio-3"></i>
+              </a>
+            </li>
+  
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="inside-footer col-lg-6 col-md-4 col-sm-4">
+      <div>
+        <div>
+          <h2>Quick Links</h2>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <a routerLink="/">
+                <i class="fa fa-home left-icon" aria-hidden="true"></i>Home
+              </a>
+            </li>
+            <li>
+              <a routerLink="/pricing">
+                <i class="fa fa-credit-card  left-icon" aria-hidden="true"></i>Pricing
+              </a>
+            </li>
+            <li>
+              <a routerLink="/partnership">
+                <i class="fa fa-handshake-o left-icon" aria-hidden="true"></i>Partnership
+              </a>
+            </li>
+  
+            <li>
+              <a routerLink="/features-comparison">
+                <i class="fa fa-bar-chart left-icon"></i>Features Comparison
+              </a>
+            </li>
+            <li *ngIf="!check_login()">
+              <a routerLink="/login">
+                <i class="fa fa-sign-in left-icon"></i>Sign In
+              </a>
+            </li>
+            <li *ngIf="!check_login()">
+              <a routerLink="/sign-up">
+                <i  aria-hidden="true" class="fa fa-unlock   left-icon"></i>Sign Up
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<div class="inside-footer col-lg-3 col-md-5 col-sm-4">
+  <div class="links">
+    <div class="wht-is">
+      <h2>What is GenieCapture?</h2>
+      <p>
+        GenieCapture is a next-generation toolbox for authoring, refining, managing & consuming high-quality
+        e-Learning content for your Training Audience.Unbeatable Pricing & the industry's most comprehensive Feature
+        Set - One Platform: GenieCapture accelerates the business workforce and students by sharing knowledge and
+        adopt software the Smart Way.
+      </p>
+    </div>
+    <p>
+      Subscribe to the newsletter and get the latest and exclusive deals straight to your inbox.
+    </p>
+    <form [formGroup]="form" name="form">
+      <div class="input-group footer-input">
+        <input class="form-control " formControlName="email" placeholder="Email Address" type="email" id="email"
+          required>
+        <div class="input-group-btn">
+          <button type="button" (click)="onSubmit(form.controls.email.value)" class="btn send-btn" type="button"
+            [disabled]="!form.valid || valid">
+            <i class="fa fa-arrow-up footer-icon"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<div class="last-footer">
+  <div class="Copyright">
+    Copyright © 2019, GenieCapture. All rights reserved
+  </div>
+  <div class="terms-of-use">
+    <a href="terms" target="_blank" id="link">Terms of Use </a>
+    <span class="space">| </span>
+    <a href="privacy-policy" target="_blank" id="link">Privacy Policy</a>
+  </div>
+</div>
 </div>

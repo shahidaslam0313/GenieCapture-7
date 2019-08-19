@@ -1,4 +1,4 @@
-<div class="header-home navbar-transparent ">
+<!-- <div class="header-home navbar-transparent ">
   <nav class="nav-home ">
     <div class="navbar-header ">
       <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
@@ -28,12 +28,7 @@
                     GenieCapture?</span>
                 </a>
               </li>
-              <!-- <li>
-                <a routerLink="/who-are-we">
-                  <span> <i class="fa fa-plus"></i> </span><span >Who are
-                    We?</span>
-                </a>
-              </li> -->
+
             </ul>
           </div>
         </li>
@@ -101,6 +96,118 @@
         <li *ngIf="!check_login()">
           <a routerLink="/sign-up" routerLinkActive="Active">
             <i class="fa fa-unlock" aria-hidden="true"></i>Sign up
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</div> -->
+
+<div class="header-home navbar-transparent ">
+  <nav class="nav-home ">
+    <div class="navbar-header ">
+      <button class="navbar-toggle" data-target="#menu-example" data-toggle="collapse" type="button">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a routerLink="/" class="logo">
+        <img src="./assets/images/250x66.png" alt="geniecapture" />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="menu-example">
+      <ul class="navbar-nav navbar-right">
+        <li class="vanders">
+          <a href="javascript:void(0)" routerLinkActive="Active">
+            <i class="fa fa-question-circle-o"></i>Why GenieCapture?
+          </a>
+          <div class="drop-downs" >
+            <ul class="nav-vanders  why-rfp-sublist" >
+              <li>
+                <a routerLink="/how-it-works">
+                  <span><i class="fa fa-fire"></i></span> <span >How it
+                    Works?</span>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/what-is-genie-capture">
+                  <span><i class="fa fa-leaf"></i> </span><span >What is
+                    GenieCapture?</span>
+                </a>
+              </li>
+              <!-- <li>
+                <a routerLink="/who-are-we">
+                  <span> <i class="fa fa-plus"></i> </span><span >Who are
+                    We?</span>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a routerLink="/pricing">
+            <i class="fa fa-credit-card" aria-hidden="true"></i>Pricing
+          </a>
+        </li>
+        <li>
+          <a routerLink="/features-comparison" routerLinkActive="Active">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>Comparison
+          </a>
+        </li>
+        <li *ngIf="check_login()" class="vanders">
+          <a href="javascript:void(0)" routerLink="/profile">
+            <i class="fa fa-user"></i> My GenieCapture
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders  why-rfp-sublist">
+              <li>
+                <a routerLink="/profile">
+                  <i class="fa fa-user"></i> <span >Profile</span></a>
+              </li>
+              <li>
+                <a routerLink="/subscription">
+                  <i class="material-icons">subscriptions </i><span >Subscription</span></a>
+              </li>
+              
+              <li>
+                <a routerLink="/purchase-history" routerLinkActive="active-route">
+                  <i class="fa fa-history"></i><span >Purchase History</span></a>
+              </li>
+              <li>
+                <a routerLink="/payment">
+                  <i class="fa fa-money"></i>Payment Methods</a>
+              </li>
+              <li>
+                <a routerLink="/licensedetails">
+                  <i class="fa fa-info" ></i>License Information</a>
+              </li>
+              <li>
+                <a class="curser-pointer" (click)="downloads()">
+                  <i class="fa fa-download"></i>Download</a>
+              </li>
+              <li>
+                <a routerLink="/change-password">
+                  <i class="fa fa-key"></i>Change Password</a>
+              </li>
+              <li>
+                <a routerLink="/support">
+                  <i class="fa fa-comment"></i>Support Center
+                </a>
+              </li>
+              <li>
+                <a (click)="logout()">
+                  <i class="fa fa-lock"></i><span >Sign Out</span></a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li *ngIf="!check_login()">
+          <a routerLink="/login"  routerLinkActive="Active">
+            <i class="fa fa-sign-in"></i>Sign In
+          </a>
+        </li>
+        <li *ngIf="!check_login()">
+          <a routerLink="/sign-up" routerLinkActive="Active">
+            <i class="fa fa-unlock" aria-hidden="true"></i>Sign Up
           </a>
         </li>
       </ul>
