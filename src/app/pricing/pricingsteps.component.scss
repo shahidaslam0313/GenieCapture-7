@@ -201,11 +201,12 @@ btn.btn-success.dropdown-toggle:focus {
   background-color: #000;
   border-radius: 30px;
   padding: 0;
+  margin:10px 0;
   color: #fff;
   width: 100%;
   font-size: 16px;
   font-weight: 700;
-  min-width: 300px
+  max-width: 300px
 }
 
 .btn.btn-success:focus,
@@ -229,7 +230,6 @@ btn.btn-success.dropdown-toggle:focus {
 .btn-submit[disabled] {
   background-color: #585858;
   color: #fff!important;
-  max-width: 40%
 }
 
 .btn-submit[disabled]:hover {
@@ -570,7 +570,6 @@ input:checked+.slider:before {
 
 .layout {
   width: 100%;
-  min-width: 700px;
   border-radius: 6px;
   margin-top: 100px;
   margin-bottom: 30px;

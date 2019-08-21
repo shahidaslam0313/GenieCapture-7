@@ -1195,8 +1195,27 @@ body {
   .inner {
     width: 100% !important
   }
+  .payment-row.zip > div{
+    width: 100% !important;
+}
+}
+@media (max-width:540px){
+  .credit-card-box .back, .credit-card-box .front {
+    width: 335px !important;
+  }
+  .credit-card-box {
+    width: 335px !important;
+    left: 50% !important;
+  }
+  .header-pricing >div{
+    margin: 5px 0 !important;
+  }
+  .header-pricing {
+    flex-wrap: wrap;
+    justify-content: center !important;
 }
 
+}
 @media (min-width:1025px) {
   .navbar-nav>li>a {
     font-size: 16px !important
