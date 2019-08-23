@@ -281,7 +281,7 @@ export class PaymentComponent implements OnInit {
     this.valid = true;
     let obj = {
       email: this.uname,
-      card_type: this.var_type_atm["_value"],
+      card_type: this.var_type_atm["value"],
       key: this.default,
       ...this.form.value
     }
@@ -348,7 +348,7 @@ export class PaymentComponent implements OnInit {
   DeleteSavedAccount(id) {
     swal({
         title: "Are you sure?",
-        text: "Once deleted, you will not be able to do transactions by this payment method!",
+        text: "Once deleted, you will not be able to do transactions by this payment method",
         type: "warning",
         showCancelButton: true,
         confirmButtonText: 'Yes, delete it!',
