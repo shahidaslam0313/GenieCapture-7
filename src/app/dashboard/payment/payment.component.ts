@@ -286,7 +286,7 @@ export class PaymentComponent implements OnInit {
       ...this.form.value
     }
     this.paymentService.AddPaymentMethod(obj).subscribe(res => {
-      if (res.message == "Payment method is listed.") {
+      if (res.message == "Payment method is added.") {
         this.alert.AlertBox("success", res.message)
         this._nav.navigateByUrl('/', {
           skipLocationChange: true

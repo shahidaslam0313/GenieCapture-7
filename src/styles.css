@@ -4841,8 +4841,8 @@ body {
 .benner-conter {
   width: 300px;
   position: absolute;
-  top: 175px;
-  right: 55px;
+  top: 225px;
+  left: 30px;
 }
 .header-form.profile{
   max-width: 200px;

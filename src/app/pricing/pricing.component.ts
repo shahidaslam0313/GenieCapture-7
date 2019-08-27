@@ -385,7 +385,7 @@ plan
     let obj = {
       email: this.uname,
       package: this.valuee,
-      card_type: this.var_type_atm["_value"],
+      card_type: this.var_type_atm["value"],
       amount: this.pkg_detail['type'],
       recure: this.recure,
       ...this.form.value

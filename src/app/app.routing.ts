@@ -88,7 +88,7 @@ export const AppRoutes: Routes = [{
                 component: TermsComponent
             },
             {
-                path: 'privacy-policy',
+                path: 'privacy',
                 component: PrivacyPolicyComponent
             },
             {

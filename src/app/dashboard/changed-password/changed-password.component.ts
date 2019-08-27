@@ -20,6 +20,7 @@ declare interface ValidatorFn {
 export class ChangedPasswordComponent{
     local;
     uname;
+    hide;
    
     register: FormGroup;
     
