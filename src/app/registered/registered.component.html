@@ -79,10 +79,10 @@
                                     (change)="setValue( agent, $event )">
                                 </mat-slide-toggle>
                                 <span class="signs">I understand and agree that the use of this Website, Desktop App and
-                                    ALL other related Technology Platforms are subject to the
+                                    ALL other related Technology Platforms are subject to the GenieCapture
                                     <a routerLink="/terms">Terms of Use</a>
                                     and
-                                    <a routerLink="/privacy-policy">Privacy Policy</a></span>
+                                    <a routerLink="/privacy">Privacy Policy</a></span>
                             </label>
                         </div>
 
@@ -90,7 +90,11 @@
                             <button type="submit" class="btn-submit" mat-raised-button [disabled]="!passer || !register.valid" (click)="myFunc(); onRegister()">Sign
                                 Up</button>
                         </div>
+                        <div class="already">
+                            Already have an account? <a routerLink="/login">Sign In</a>
+                        </div>
                     </div>
+                
                 </div>
             </form>
         </mat-card>

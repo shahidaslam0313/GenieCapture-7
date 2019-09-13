@@ -21,7 +21,11 @@ div#notes {
   width: 98%!important;
   margin-left: 1%!important
 }
-
+.country-img{
+  width: 25px;
+  border-radius: 50px;
+  vertical-align: middle;
+}
 .headline {
   display: flex;
   flex-direction: column;

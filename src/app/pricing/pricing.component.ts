@@ -14,6 +14,9 @@ import {
   Router
 } from '@angular/router';
 import {
+  PaymentService
+} from '../dashboard/payment/payment.service'
+import {
   FormGroup,
   FormBuilder,
   Validators,
@@ -22,6 +25,7 @@ import {
 import {
   SharedData
 } from '../shared-service';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -84,6 +88,7 @@ export class PricingComponent implements OnInit {
   public cardmask = [/[0-9]/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   min;
   max;
+  allcountry;
   cardcodelentgh(card_type) {
     if (card_type == "American Express") {
       this.min = 4;
@@ -95,7 +100,14 @@ export class PricingComponent implements OnInit {
   }
   public form: FormGroup
   public defaultCards: FormGroup
-  constructor(private alert: SharedData, private _nav: Router, private _serv: PricingService, private http: Http, private fb: FormBuilder) {  }
+  constructor(private alert: SharedData, private _nav: Router, private _serv: PricingService, private http: Http, private fb: FormBuilder, private paymentService : PaymentService) {
+    this.paymentService.getcounty().subscribe( data =>{
+      
+      this.allcountry = data['countries'];
+    
+      console.log(this.allcountry);
+    });
+    }
   card_opeation = [{
     value: 'Visa',
     viewValue: 'Visa Card'
@@ -475,9 +487,9 @@ plan
         '';
   }
   zipCodeErrMsg() {
-    return this.form.controls['zip_code'].hasError('required') ? 'Zip Code cannot be empty' :
-      this.form.controls['zip_code'].hasError('pattern') ? 'Zip Code must be only in digits.' :
-        this.form.controls['zip_code'].hasError('minlength') ? ' Zip Code must be atleast 4 digits long.' :
+    return this.form.controls['zip_code'].hasError('required') ? 'Zip / Postal Code cannot be empty' :
+      this.form.controls['zip_code'].hasError('pattern') ? 'Zip / Postal Code  must be only in digits.' :
+        this.form.controls['zip_code'].hasError('minlength') ? 'Zip / Postal Code must be atleast 4 digits long.' :
           '';
   }
   nickNameErrMsg() {

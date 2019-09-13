@@ -97,7 +97,7 @@
         <form [formGroup]="form" class="support-placeholder">
             <div class="rows" >
                 <mat-form-field class="cardType">
-                    <mat-select placeholder="Card-Type" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
+                    <mat-select placeholder="Card Type *" [formControl]="var_type_atm" (change)="ShowButton(var_type_atm.value)">
                         <mat-option *ngFor="let card_get_datat of card_opeation" [value]="card_get_datat.value">
                             {{card_get_datat.viewValue}}</mat-option>
                     </mat-select>
@@ -122,7 +122,7 @@
                
 
                 <mat-form-field>
-                    <input matInput maxlength={{max}} minlength={{min}} placeholder="CVV" formControlName="cardcode">
+                    <input matInput maxlength={{max}} minlength={{min}} placeholder="CVV No *" formControlName="cardcode">
                     <mat-error *ngIf="form.controls['cardcode'].invalid">
                         {{ cvvErrMsg() }}
                     </mat-error>
@@ -140,7 +140,7 @@
               </div>
               <div class="col-sm-6">
                 <mat-form-field>
-                    <input class="text_captilize" matInput placeholder="Street Address" maxlength="300" type="text" formControlName="str_add">
+                    <input class="text_captilize" matInput placeholder="Street Address *" maxlength="300" type="text" formControlName="str_add">
                     <mat-error *ngIf="form.controls.str_add.touched && form.controls.str_add.invalid">
                         <mat-error *ngIf="form.controls.str_add.errors.required">
                             Street address cannot be empty
@@ -148,9 +148,25 @@
                     </mat-error>
                 </mat-form-field>
               </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <mat-select 
+                    type="text" formControlName="country"  placeholder="Country" >
+                         <mat-option  *ngFor="let item of allcountry " [value]="item.name" >
+                            
+                             <img class="country-img" src="{{item.image_path}}">
+                           {{item.name }}
+                         </mat-option>
+                       </mat-select>
+
+                    <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
+                        
+                    </mat-error>
+                </mat-form-field>
+              </div>
               <div class="col-sm-6 zip">
                 <mat-form-field>
-                    <input matInput placeholder="Zip Code" maxlength="5" formControlName="zip_code" #zipcode1
+                    <input matInput placeholder="Zip / Postal Code " maxlength="5" formControlName="zip_code" #zipcode1
                     (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1  step="1" required (keydown.space)="$event.preventDefault()"
                     >
                     <mat-error *ngIf="form.controls['zip_code'].invalid">
@@ -164,9 +180,18 @@
                   </p>
               </div>
               
+            
               <div class="col-sm-6">
                 <mat-form-field>
-                    <input class="text_captilize" matInput placeholder="City" type="text" formControlName="city" readonly [(ngModel)]="model.city">
+                    <input matInput placeholder="State / Province *" type="text" formControlName="state"  [(ngModel)]="model.state">
+                    <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
+                      
+                    </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field>
+                    <input class="text_captilize" matInput placeholder="City *" type="text" formControlName="city"  [(ngModel)]="model.city">
                     <mat-error *ngIf="form.controls.city.touched && form.controls.city.invalid">
                     
 
@@ -176,23 +201,7 @@
               </div>
               <div class="col-sm-6">
                 <mat-form-field>
-                    <input matInput placeholder="State" type="text" formControlName="state" readonly [(ngModel)]="model.state">
-                    <mat-error *ngIf="form.controls.state.touched && form.controls.state.invalid">
-                      
-                    </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-sm-6">
-                <mat-form-field>
-                    <input matInput placeholder="Country" type="text" formControlName="country" readonly [(ngModel)]="model.country">
-                    <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
-                        
-                    </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-sm-6">
-                <mat-form-field>
-                    <input class="text_captilize" matInput type="text" placeholder="Nick Name" formControlName="nick_name">
+                    <input class="text_captilize" matInput type="text" placeholder="Nick Name *" formControlName="nick_name">
                     <mat-error *ngIf="form.controls['nick_name'].invalid">
                         {{ nickNameErrMsg() }}
                     </mat-error>
@@ -200,7 +209,7 @@
               </div>
               <div class="col-sm-6">
                 <mat-form-field>
-                    <input class="text_captilize" matInput type="text" placeholder="Cardholder Name" formControlName="card_holder">
+                    <input class="text_captilize" matInput type="text" placeholder="Cardholder Name *" formControlName="card_holder">
                     <mat-error *ngIf="form.controls['card_holder'].invalid">
                         {{ cardHolderErrMsg() }}
                     </mat-error>

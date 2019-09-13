@@ -38,6 +38,7 @@ export class PaymentComponent implements OnInit {
   public show: boolean = false;
   check_value: boolean = false;
   ccv1: boolean = false;
+  allcountry;
   card_opeation = [{
       value: 'Visa',
       viewValue: 'Visa Card'
@@ -88,7 +89,16 @@ export class PaymentComponent implements OnInit {
     }
   }
   flipclass = 'credit-card-box';
-  constructor(private _nav: Router, private fb: FormBuilder, private paymentService: PaymentService, private alert: SharedData, public dialog: MatDialog) {}
+  constructor(private _nav: Router, private fb: FormBuilder, private paymentService: PaymentService, private alert: SharedData, public dialog: MatDialog) {
+
+    this.paymentService.getcounty().subscribe( data =>{
+      
+      this.allcountry = data['countries'];
+    
+      console.log(this.allcountry);
+    });
+  
+  }
 
   ShowButton(var_type_atm) {
     this.cardtype = var_type_atm;
@@ -128,6 +138,7 @@ export class PaymentComponent implements OnInit {
 
   }
   ngOnInit() {
+ 
     this.agent="true"
     this.local = localStorage.getItem("currentUser");
     let pars = JSON.parse(this.local);
@@ -293,7 +304,7 @@ export class PaymentComponent implements OnInit {
         }).then(() =>
           this._nav.navigate(["/payment"]));
         this.valid = false;
-      } else if (res.message == "Failed,Please try with valid card information") {
+      } else if (res.message == "Failed, Please try with valid card information") {
         this.alert.AlertBox("error", res.message);
         this.valid = false;
       } else if (res.message == "You cannot add more than five cards, Remove any saved card to add new payment method.") {
@@ -404,9 +415,9 @@ export class PaymentComponent implements OnInit {
   ''; 
     }
     zipCodeErrMsg(){
-      return this.form.controls['zip_code'].hasError('required') ? 'Zip Code cannot be empty' :
-      this.form.controls['zip_code'].hasError('pattern') ? 'Zip Code must be only in digits.' :  
-      this.form.controls['zip_code'].hasError('minlength') ? ' Zip Code must be 5 digits long.' :
+      return this.form.controls['zip_code'].hasError('required') ? 'Zip / Postal Code cannot be empty' :
+      this.form.controls['zip_code'].hasError('pattern') ? 'Zip / Postal Code  must be only in digits.' :  
+      this.form.controls['zip_code'].hasError('minlength') ? ' Zip / Postal Code  must be 5 digits long.' :
       '';
     }
     expDateErrMsg(){

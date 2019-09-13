@@ -16,6 +16,7 @@ import { LoginService} from './login/login.service';
 import { PricingService } from './pricing/pricing.service';
 import { RegisterService} from './registered/register.service';
 import { ForgetPasswordService } from './dashboard/forget-password/forget-password.service';
+import { MatFormFieldModule} from '@angular/material';
 import { ChangedPasswordService } from './dashboard/changed-password/changed-password.service';
 import { SidebarService } from './user-sidebar/sidebar.service';
 import { ProfileService } from './dashboard/profile/profile.service';
@@ -164,7 +165,7 @@ let config = new AuthServiceConfig([
         MatDialogModule,
         MatExpansionModule,
         MatGridListModule,
-   
+        MatFormFieldModule,
         MatIconModule,
         MatInputModule,
         MatListModule,

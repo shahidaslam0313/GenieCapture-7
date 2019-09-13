@@ -365,8 +365,24 @@
               </div>
               <div class="payment-row zip">
                 <div>
+                    <mat-form-field>
+                        <mat-select 
+                        type="text" formControlName="country"  placeholder="Country" >
+                             <mat-option  *ngFor="let item of allcountry " [value]="item.name" >
+                                
+                                 <img class="country-img" src="{{item.image_path}}">
+                               {{item.name }}
+                             </mat-option>
+                           </mat-select>
+      
+                        <mat-error *ngIf="form.controls.country.touched && form.controls.country.invalid">
+                            
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
                   <mat-form-field>
-                    <input matInput placeholder="Zip Code" maxlength="5" minlength=4 formControlName="zip_code" #zipcode1
+                    <input matInput placeholder="Zip / Postal Code *" maxlength="5" minlength=4 formControlName="zip_code" #zipcode1
                       required (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 (keypress)="keyPress($event)"
                       step="1" required (keydown.space)="$event.preventDefault()">
                     <mat-error *ngIf="form.controls['zip_code'].invalid">
@@ -380,25 +396,21 @@
                   <p *ngIf="!invalid  && model.city && model.state && model.country">
                   </p>
                 </div>
-                <div>
-                  <mat-form-field>
-                    <input class="text_captilize" matInput placeholder="City" type="text" formControlName="city" readonly
-                      [(ngModel)]="model.city">
-                  </mat-form-field>
-                </div>
+             
     
               </div>
               <div class="payment-row">
                 <mat-form-field>
-                  <input matInput placeholder="State" type="text" formControlName="state" readonly
+                  <input matInput placeholder="State / Province *" type="text" formControlName="state" 
                     [(ngModel)]="model.state">
     
                 </mat-form-field>
-                <mat-form-field>
-                  <input matInput placeholder="Country" type="text" formControlName="country" readonly
-                    [(ngModel)]="model.country">
-    
-                </mat-form-field>
+                
+                    <mat-form-field>
+                      <input class="text_captilize" matInput placeholder="City" type="text" formControlName="city" 
+                        [(ngModel)]="model.city">
+                    </mat-form-field>
+                  
               </div>
               <div class="payment-row">
     

@@ -127,7 +127,10 @@ export class RegisteredComponent implements OnInit, OnDestroy {
                     if(data._body == '"Registered Successfully! Please check your email for verification."'){
                         swal({
                             type: 'success',
-                            title: 'Registered Successfully Please check your email for verification',
+                            title: 'Registered successfully, Please check your email for verification.',
+
+
+                            
                             showConfirmButton: true,
                         });
                         this.register.reset();

@@ -53,4 +53,7 @@ zipcode(zip) {
    
     return this._http5.get('https://apis.rfpgurus.com/zipcode/' + zip + '/').map((response: Response) => response.json());
   }
+  getcounty(){
+    return this._http1.get('https://apis.rfpgurus.com/all_countries/').map((res : Response) => res.json());
+  }
 }
