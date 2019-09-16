@@ -63,6 +63,7 @@ export class RegisteredComponent implements OnInit, OnDestroy {
     checker = true;
     routing = null;
     hide = true;
+    hide1 = true;
     route;
     errorMsg:string;
     passer;

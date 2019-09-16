@@ -335,6 +335,8 @@ export class PaymentComponent implements OnInit {
 
       if (res.length == 0) {
         this.noMethodSaved = true
+        localStorage.setItem('checkcard', this.noMethodSaved)
+        console.log('checkcard');
 
       } else {
         this.noMethodSaved = false

@@ -89,6 +89,7 @@
               <th>Ticket id</th>
               <th>Subject</th>
               <th>Description</th>
+              <th>Status</th>
               <th>Detail</th>
             </tr>
           </thead>
@@ -97,6 +98,8 @@
                   <td>{{card.trackingid  }} </td>
               <td>{{card?.subject}}</td>
               <td>{{card?.message}}</td>
+              <td *ngIf="card?.status == false">Close</td>
+              <td *ngIf="card?.status == true">Open</td>
               <td><button class="btn btn-rose btn-fill" (click)="getid(card.id)">Detail</button></td>
             </tr>
           </tbody>

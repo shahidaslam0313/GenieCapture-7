@@ -311,7 +311,7 @@
             </div>
             <form [formGroup]="form" class="payment-card">
               <div class="isTrials spans">
-                <span *ngIf="isTrial">Your credit card should be validated not charged.</span>
+                <span *ngIf="isTrial">"Your credit card will be validated but will not be charged.</span>
               </div>
               <div class="">
                 <mat-form-field class="card-type">
@@ -382,7 +382,7 @@
                 </div>
                 <div>
                   <mat-form-field>
-                    <input matInput placeholder="Zip / Postal Code *" maxlength="5" minlength=4 formControlName="zip_code" #zipcode1
+                    <input matInput placeholder="Zip / Postal Code " maxlength="5" minlength=4 formControlName="zip_code" #zipcode1
                       required (ngModelChange)="zipcodeCheck(zipcode1.value)" #zipcode1 (keypress)="keyPress($event)"
                       step="1" required (keydown.space)="$event.preventDefault()">
                     <mat-error *ngIf="form.controls['zip_code'].invalid">
@@ -447,7 +447,7 @@
 
           <div *ngIf="!isright" class="move-down payment-placeholder row">
               <div class="spanss spans">
-                  <span *ngIf="isTrial">Your credit card should be validated not charged.</span>
+                  <span *ngIf="isTrial">"Your credit card will be validated but will not be charged.</span>
                 </div>
             <div class="col-sm-12">
                 <form [formGroup]="defaultCards">

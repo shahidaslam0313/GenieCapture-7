@@ -20,7 +20,7 @@
                             {{ lastNameErrMsg()}}
                         </mat-error>
                     </mat-form-field>
-                    <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <mat-form-field  id="capitalize"  class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <input matInput type="text" class="input-size" formControlName="organization" placeholder="Organization" required />
                         <mat-error *ngIf="register.controls['organization'].invalid">
                             {{ orgErrMsg() }}
@@ -54,7 +54,7 @@
                     <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <input matInput type="password" class="input-size" formControlName="confirmPassword" placeholder="Confirm Password" [type]="hide ? 'password' : 'text'" required>
 
-                        <i matSuffix (click)="hide = !hide" class=" {{hide ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+                        <i matSuffix (click)="hide1 = !hide1" class=" {{hide1 ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
                         <mat-error *ngIf="(register.controls.confirmPassword.value != register.controls.password.value) || register.controls.confirmPassword.value=='' ">
                             Password does not match
                         </mat-error>
